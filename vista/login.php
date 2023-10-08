@@ -10,7 +10,7 @@
 	
      	<head>
 
-	  <dive class="row">
+	  <dive class="navbar navbar-expand-lg bg-body-tertiary">
 	    
 	  </dive>
 
@@ -22,6 +22,8 @@
 
 
 		</dive class="row">
+
+
 
 		  <form class="form-control">
 			<label for="usuario">Usuario</label>
