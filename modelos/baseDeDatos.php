@@ -1,5 +1,6 @@
 <?php
 
+
 //Modelo para la conexión a la base de datos
 class BaseDeDatos{
     const servidor = "localhost";   
@@ -9,15 +10,21 @@ class BaseDeDatos{
 
     //método estatico conectar para no tener que instanciar
     public static function conectar(){
-     $conexion = mysqli_conect(servidor,usuarioDb,contrasena,nombreBaseDeDatos)
 
-     if($conexion){
+      try
+      {
+         $conexion = new PDO("mysql:host=".self::servidor.
+         ";dbname=".self::nombreBaseDeDatos.";charset-utf8",self::usuarioDb,
+         self::contrasena);
+         
+         return $conexion;
 
-      echo "conexion exitosa";
-     }else{
-
-      echo "no se pudo conectar";
-     }
-      
+         //ajustar parametros de errores en visualización
+         $conexion->setAtribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 
+      }catch(PDOException $e)
+      {
+         return "Conexión fallida".$e->getMessage();
+            
+      }
    }
 }

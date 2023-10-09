@@ -1,5 +1,5 @@
 <?php
-
+include_once "modelos/baseDeDatos.php";
 //Capturamos la petición de la url, si se no se pasa nada entrará a la vista principal
 //de lo contrario 
 if(!isset($_GET['c'])){
