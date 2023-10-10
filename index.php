@@ -14,6 +14,6 @@ if(!isset($_GET['c'])){
     require_once "controladores/$controlador.controlador.php";
     $controlador = ucwords($controlador)."controlador";
     $controlador = new $controlador;
-    $accion = isset($_GET['a']) ? $_GET['a'] : "login";
+    $accion = isset($_GET['post']) ? $_GET['post'] : "login";
     call_user_func(array($controlador,$accion));
 }
