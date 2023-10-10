@@ -41,9 +41,9 @@
 	<br>
 	<?php	
 	if($bd){
-		echo "conexión exitosa";
+		
 	}else{
-		echo "conexión fallida";
+		
 	}
 	?>
 
