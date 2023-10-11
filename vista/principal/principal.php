@@ -7,6 +7,10 @@
 </head>
 <body>
     <p>principal</p>
+<?php
 
+ 
+
+?>
 </body>
 </html>

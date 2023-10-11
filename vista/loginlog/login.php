@@ -26,7 +26,7 @@
                     <div class="form-group mx-sm-4 pb-3">
                         <input type="password" class="form-control" name="contrasena" placeholder="Ingrese su Contraseña" id="contrasena">
 
-						<p id="error">error al ingresar los elementos</p>
+						<p id="error">Por favor, completa todos los campos.</p>
                     </div>
 					
                     <div class="form-group mx-sm-4 pb-2">
@@ -45,7 +45,7 @@
 
 	<br>
 	<?php	
-	//
+	
 	if($bd){
 		echo "conexión exitosa";
 	}else{

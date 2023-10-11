@@ -15,7 +15,7 @@ function validar() {
 
     // Verifica que los campos no estén vacíos
     if (usuario.trim() === '' || contrasena.trim() === '') {
-        
+      
         error.style.display = "flex";
        
         return false;
