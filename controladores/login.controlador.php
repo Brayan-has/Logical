@@ -2,7 +2,7 @@
 
 class LoginControlador{
 
-    private $modelo;
+    // private $modelo;
 
     public function __contruct(){
        
@@ -15,5 +15,7 @@ class LoginControlador{
      
     }
 
+   
+   
  
 }
