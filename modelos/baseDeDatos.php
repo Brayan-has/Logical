@@ -28,7 +28,7 @@ class BaseDeDatos{
          
       }catch(Exception $e)
       {
-         return "Conexión fallida".$e->getMessage();
+         return "Conexión fallido".$e->getMessage();
             
       }
    }
