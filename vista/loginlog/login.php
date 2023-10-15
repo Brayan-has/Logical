@@ -45,7 +45,7 @@
 
 	<br>
 	<?php	
-	//
+	//conexión a  base de datos
 	if($bd){
 		echo "conexión exitosa";
 	}else{

@@ -7,21 +7,26 @@ class BaseDeDatos{
     const usuarioDb = "root";
     const contrasena = "2020";
     const nombreBaseDeDatos ="logical";
+    const conexion;
+
+    //constructor
+   public function __construct() {
+      $this->conexion = new mysqli(servidor, usuarioDb, contrasena, nombreBaseDeDatos);
+    }
 
     //método estatico conectar para no tener que instanciar
     public static function conectar(){
 
       try
       {
-         $conexion = new PDO("mysql:host=".self::servidor.
-         ";dbname=".self::nombreBaseDeDatos.";charset-utf8",self::usuarioDb,
-         self::contrasena);
+         if(!conexion->connect_errno){
+            echo "fallo de conexión (".conexion->conect_errno. ")".conexion->conect_errno;
+         }
          
-         return $conexion;
+         echo conexion->host_info . "\n";
 
-         //ajustar parametros de errores en visualización
-         $conexion->setAtribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 
-      }catch(PDOException $e)
+         
+      }catch(Exception $e)
       {
          return "Conexión fallida".$e->getMessage();
             
