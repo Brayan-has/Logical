@@ -45,7 +45,11 @@
 
 	<br>
 	<?php	
+<<<<<<< HEAD
 	
+=======
+	//conexión a  base de datos
+>>>>>>> b706b5b68dd2bbcfb16dbe4291dbf6a3d2e8473d
 	if($bd){
 		echo "conexión exitosa";
 	}else{

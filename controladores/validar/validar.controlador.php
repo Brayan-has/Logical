@@ -25,3 +25,4 @@ function validar() {
     }
 }
     </script>
+    $_POST
