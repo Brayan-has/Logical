@@ -1,31 +1,51 @@
 <?php
 
+// datos de la coneccion
 
-//Modelo para la conexión a la base de datos
-class BaseDeDatos{
-    const servidor = "localhost";   
-    const usuarioDb = "root";
-    const contrasena = "2020";
-    const nombreBaseDeDatos ="logical";
+$SERVERNAME= "localhost";
+$USERNAME= "root";
+$PASSWORD="2020";
+$DBNAME="logical";
 
-    //método estatico conectar para no tener que instanciar
-    public static function conectar(){
+//creacion de la connection
 
-      try
-      {
-         $conexion = new PDO("mysql:host=".self::servidor.
-         ";dbname=".self::nombreBaseDeDatos.";charset-utf8",self::usuarioDb,
-         self::contrasena);
-         
-         return $conexion;
+$conn=new mysqli($SERVERNAME,$USERNAME,$PASSWORD,$DBNAME);
 
-         //ajustar parametros de errores en visualización
-         $conexion->setAtribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 
-      }catch(PDOException $e)
-      {
-         return "Conexión fallida".$e->getMessage();
-            
-      }
+// verificacion de la coneccion 
+
+if($conn->connect_error){
+   die("error de conexion:". $conn->connect_error);
+}
+
+// mostraremos el contenido de la tabla
+
+$sql_select_data= "SELECT * FROM empleado";
+$result=$conn->query($sql_select_data);
+
+// se encontraron resultados 
+
+if($result->num_rows>0){
+   //mostrar los datos de logical
+   while($row=$result->fetch_assoc()){
+      echo"id_empleado:".$row["id_empleado"]."<br>";
+      echo "nombre:".$row["nombre"]."<br>";
+      echo"apellido:".$row["apellido"]."<br>";
+      echo "cedula:".$row["cedula"]."<br>";
+      echo"fecha_nacimiento:".$row["fecha_nacimiento"]."<br>";
+      echo "telefono:".$row["telefono"]."<br>";
+      echo"correo:".$row["correo"]."<br>";
+      echo "contraseña:".$row["contraseña"]."<br>";
    }
 
+}else{
+   echo"no encontramos datos en la tabla";
+
+   
 }
+
+
+
+   // cerramos la base de datos 
+
+   $conn->close();
+?>
