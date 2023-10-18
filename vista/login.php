@@ -23,7 +23,7 @@
                     </div>
                     <?php
                     include("../modelo/conexion_bd.php");
-                    include("../controlador/controlador.php");
+                    include("../controlador/validar.controlador.php");
                     ?>
                     <div class="form-group mx-sm-4 pt-3">
                         <input type="text" class="form-control" name="usuario" placeholder="Ingrese su Usuario"id="usuario">
@@ -35,11 +35,11 @@
                     <div class="form-group mx-sm-4 pb-2">
                         <input type="submit" class="btn btn-block ingresar" value="INGRESAR" name="ingresar">
                     </div>
-                    <div class="form-group mx-sm-4 text-right">
+                    <!-- <div class="form-group mx-sm-4 text-right">
                         <span class=""><a href="./vista/recuperar/recuperar.php" class="olvide">Olvide mi contraseña</a></span>
-                    </div>
+                    </div> -->
                     <div class="form-group text-center">
-                        <span><a href="./vista/registro/registro.php" class="olvide1">REGISTRARSE</a></span>
+                        <span><a href="../vista/registro/registro.php" class="olvide1">CREAR CUENTA</a></span>
                     </div>
                 </form>
             </div>

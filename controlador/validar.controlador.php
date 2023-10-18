@@ -3,8 +3,8 @@
 
 if(!empty("ingresar")){
 
-    if(empty($_POST["usuario"]) and empty($_POST["contrasena"])){
-        echo "<div alert alert-danger>LOS CAMPOS ESTÁN VACIOS</div>";
+    if(empty($_POST["usuario"]) or empty($_POST["contrasena"]) ){
+        echo "<div alert alert-danger>UN CAMPO O TODOS LOS CAMPOS ESTÁN VACIOS</div>";
     }else
     {
         $usuario = $_POST['usuario'];

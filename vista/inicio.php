@@ -8,6 +8,10 @@
 <body>
 
     <h1>BIENVENIDO A LOGICAL</h1>
+
+
+
+    <a href="../vista/login.php">SALIR</a>
     <?php
 
     
