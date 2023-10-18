@@ -15,7 +15,7 @@ if(!empty($_POST["registro"])){
         $cedula = $_POST['cedula'];
         $telefono = $_POST['telefono'];
         $correo = $_POST['correo'];
-        $contrasena = $_POST['contrasena'];
+        $contrasena = md5($_POST['contrasena']);
 
       //sentencia para registrar el usuario
       $sql = $conexion->query("INSERT INTO empleado (nombre,apellido,fecha_nacimiento,cedula,telefono,correo,contrasena) VALUES ( '$nombre','$apellido','$nacimiento',$cedula,$telefono,'$correo','$contrasena')");
