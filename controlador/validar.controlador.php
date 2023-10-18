@@ -8,7 +8,7 @@ if(!empty("ingresar")){
     }else
     {
         $usuario = $_POST['usuario'];
-        $contrasena = $_POST['contrasena'];
+        $contrasena = md5($_POST['contrasena']);
         //
         $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
         if ($datos=$sql->fetch_object()) {
