@@ -12,10 +12,12 @@
 
 
     <a href="../vista/login.php">SALIR</a>
-    <?php
+    
+    <h1></h1>
+    
 
     
 
-    ?>
+    
 </body>
 </html>
