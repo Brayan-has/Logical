@@ -1,6 +1,12 @@
 <?php
 
+//
 
+session_start();
+
+
+
+//validar los campos del login básico
 if(!empty("ingresar")){
 
     if(empty($_POST["usuario"]) or empty($_POST["contrasena"]) ){
@@ -12,6 +18,9 @@ if(!empty("ingresar")){
         //
         $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
         if ($datos=$sql->fetch_object()) {
+            $_SESSION['nombre']= $datos->nombre;
+            $_SESSION['apellido']= $datos->apellido; //guardar los datos para mostarar los en la vista 
+            //de inicio
             header("location:inicio.php");
         } else {
             echo "<div alert alert-danger>EL USUARIO NO EXISTE</div>";

@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 700px;
+    background: white;
+    padding: 10px;
+    margin: auto;
+}
+body{
+    background-color: rgb(162, 183, 204);
+}
+.cedula{
+    text-align: center;
+    font-size: 25px;
+
+}
+input{
+    width: 100%;
+    padding: 40px;
+    outline: none;
+}
+
+.botones{
+    display: flex;
+    margin-top: 20px;
+}
+.entrada{
+    background-color: rgb(44, 155, 245);
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+.salida{
+    background-color: blueviolet;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
