@@ -1,10 +1,18 @@
 <?php
 
-require_once "modelos/empleado.php";
 
-$empleado=new EmpleadoModelo();
-
- echo $empleado->getNombre(); 
+include_once "./modelos/baseDeDatos.php";
 
 
-require_once "vista/loginlog/login.php";
+
+ if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Aquí puedes obtener los datos del formulario
+    $nombre = $_POST["usuario"];
+    $contraseña = $_POST["contrasena"];
+
+}
+
+
+
+
+include_once "./vista/principal/principal.php";

@@ -1,13 +1,16 @@
 <?php
 
-?>
+include_once "./vista/loginlog/login.php";
+//primero obtengo los datos del input
+//valido con isset si existe un métodos o un valor del método post
 
+?>
 <script>
-// Agrega un evento de escucha al botón de ingresar del formulario
+// // Agrega un evento de escucha al botón de ingresar del formulario
 const botonEnviar = document.getElementById('ingresar');
 botonEnviar.addEventListener("click", validar);
 
-// Función de validación
+// // Función de validación
 function validar() {
     const usuario = document.getElementById('usuario').value;
     const contrasena = document.getElementById('contrasena').value;
@@ -23,6 +26,7 @@ function validar() {
         error.style.display = "none";
         return true;
     }
-}
-    </script>
-    $_POST
+} 
+    
+</script>
+
