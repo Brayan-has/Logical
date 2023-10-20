@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
 	<link rel="stylesheet" href="./css/error.css">
-    <title>INGRESO AL SISTEMA LOGISTICA</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -17,16 +17,19 @@
     <div class="container-fluid">
       <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
 
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-        <span class="navbar-toggler-icon"></span>
-
-      </button> -->
-
+    
       <!-- SIDEVAR -->
       <section class="offcanvas offcanvas-start bg-dark" id="menuLateral" tabindex="-1">
         <!-- ENLANCES DEL NAVBAR -->
         <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
           <ul class="navbar-nav fs-5 justify-content-evenly">
+
+             
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
             <li class="nav-item p-3 py-md-1"><a href="../vista/view" class="nav-link">INICIO</a></li>
 
             

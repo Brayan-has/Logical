@@ -9,6 +9,7 @@ if(!empty($_POST["registro"])){
 
     }else {
         //capturamos cada dato del usuario
+        //tabla de empleado
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $nacimiento = $_POST['nacimiento'];
@@ -17,23 +18,23 @@ if(!empty($_POST["registro"])){
         $cargo = $_POST['cargo'];
         $correo = $_POST['correo'];
         $contrasena = md5($_POST['contrasena']);
-
-
-        
+        //tabla de cargo
+        $cargo = $_POST['cargo'];
+        //tabla de horario
 
       //sentencia para registrar el usuario
-      $sql = $conexion->query("INSERT INTO empleado (nombre,apellido,fecha_nacimiento,cedula,telefono,correo,contrasena) VALUES ( '$nombre','$apellido','$nacimiento',$cedula,$telefono,'$correo','$contrasena')");
+      $sql = $conexion->query("INSERT INTO empleado (nombre,apellido,fecha_nacimiento,cedula,telefono,correo,contrasena,cargo) 
+      VALUES ( '$nombre','$apellido','$nacimiento',$cedula,$telefono,'$correo','$contrasena','$cargo')");
     
         if ($sql==1) {
             echo "USUARIO REGISTRADO CORRECTAMENTE";
         } else {
             echo "ERROR AL REGISTRAR";
         }
+
+        // $sql = $conexion->query("INSERT INTO cargo (cargo) VALUES ($cargo);");
         
     }
-
-    
-
 
 }
 
