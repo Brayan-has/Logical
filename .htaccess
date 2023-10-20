@@ -1,8 +1,18 @@
-Options +FollowSymLinks
 RewriteEngine On
 
 #ocultar archivos desde el navegador
 Options All -Indexes
 
 #regla para poder usar url amigable
-RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+#RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+
+
+
+#regla para ocultar la extensión .html,php etc.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
