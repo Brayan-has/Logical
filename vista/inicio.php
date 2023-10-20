@@ -37,6 +37,7 @@
                         <li class="nav-item p-3 py-md-1"><a href="../vista/lista.php" class="nav-link">ASISTENCIA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">SALARIO</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">HORARIOS</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">ACTUALIZAR DATOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador">SALIR</a></li>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">

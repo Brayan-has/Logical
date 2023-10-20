@@ -1,1 +1,3 @@
-####envio de correo para verificación por medio de MSTP: haciendo pruebas de envio por medio de "Papercut" mstp
+####envio de correo para verificación por medio de MSTP: haciendo pruebas de envio por medio de "Papercut" mstp 19/10/2023
+
+###implementación de sweet alert: sistema de alerta o ventana de alerta más complejo y visual mente mejorado que un alert común
