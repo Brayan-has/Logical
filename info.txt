@@ -1,1 +1,45 @@
-####envio de correo para verificación por medio de MSTP: haciendo pruebas de envio por medio de "Papercut" mstp
+####envio de correo para verificación por medio de MSTP: haciendo pruebas de envio por medio de "Papercut" mstp 19/10/2023
+
+###implementación de sweet alert: sistema de alerta o ventana de alerta más complejo y visual mente mejorado que un alert común
+####on update cascade  para actualizar todas las tablas relacionadas y on delete cascade para eliminar todo
+#### active para base de datos y desactive para descactivar
+#### mstp google para envio de correo
+#### git amend para enmendar commits o reescribir el mensaje de un commit
+#### mostrar 404
+#### mb-1 hasta 5 en bootstrap para margin en todas las direcciones 
+
+alert para confirmar eliminación 
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your imaginary file is safe :)',
+      'error'
+    )
+  }
+})

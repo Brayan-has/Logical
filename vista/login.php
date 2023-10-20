@@ -7,11 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
-	<!-- <link rel="stylesheet" href="./assets/css/error.css"> -->
-    <title>INGRESO AL SISTEMA LOGISTICA</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="./css/error.css">
+    <title>Login</title>
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container-fluid">
+      <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
+
+    
+      <!-- SIDEVAR -->
+      <section class="offcanvas offcanvas-start bg-dark" id="menuLateral" tabindex="-1">
+        <!-- ENLANCES DEL NAVBAR -->
+        <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
+          <ul class="navbar-nav fs-5 justify-content-evenly">
+
+             
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+            <li class="nav-item p-3 py-md-1"><a href="../vista/view" class="nav-link">INICIO</a></li>
+
+            
+          </ul>
+
+        </div>
+      </section>
+    </div>
+
+  </nav>
+
+    
+
     <div class="container">
         <div class="row justify-content-center pt-5 mt-5 m-1">
             <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
