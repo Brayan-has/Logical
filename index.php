@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 // include_once "modelos/baseDeDatos.php";
@@ -21,3 +22,7 @@ if(!isset($_GET['c'])){
     $accion = isset($_GET['post']) ? $_GET['post'] : "login";
     call_user_func(array($controlador,$accion));
 }
+=======
+//redirijo hacía view
+header("location: vista/view");
+>>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
