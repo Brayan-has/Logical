@@ -1,0 +1,1 @@
+####envio de correo para verificación por medio de MSTP: haciendo pruebas de envio por medio de "Papercut" mstp
