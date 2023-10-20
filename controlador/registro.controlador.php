@@ -5,7 +5,7 @@
 
 //validar si se ha presionado el boton de REGISTRAR
 if(!empty($_POST["registro"])){
-    if(empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena'])){
+    if(empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena']) or empty($_POST['cargo'])){
 
     }else {
         //capturamos cada dato del usuario
@@ -14,6 +14,7 @@ if(!empty($_POST["registro"])){
         $nacimiento = $_POST['nacimiento'];
         $cedula = $_POST['cedula'];
         $telefono = $_POST['telefono'];
+        $cargo = $_POST['cargo'];
         $correo = $_POST['correo'];
         $contrasena = md5($_POST['contrasena']);
 

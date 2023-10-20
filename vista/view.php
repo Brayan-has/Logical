@@ -30,8 +30,8 @@
         <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
           <ul class="navbar-nav fs-5 justify-content-evenly">
             <!-- <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">HOME</a></li> -->
-            <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">ABOUT</a></li>
-            <li class="nav-item p-3 py-md-1"><a href="../vista/inicio" class="nav-link">INGRESAR</a></li>
+            <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">SOBRE LOGICAL</a></li>
+            <li class="nav-item p-3 py-md-1"><a href="../vista/login" class="nav-link">INGRESAR</a></li>
           </ul>
 
         </div>
@@ -43,12 +43,12 @@
 
   <div class="contenedor">
 
-    <h1>¡Bien venido a logical!</h1>
+    <h1>¡Bien venidoS a logical!</h1>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+  </script>
 </body>
 
 </html>

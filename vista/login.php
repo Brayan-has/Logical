@@ -17,10 +17,10 @@
     <div class="container-fluid">
       <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
         <span class="navbar-toggler-icon"></span>
 
-      </button>
+      </button> -->
 
       <!-- SIDEVAR -->
       <section class="offcanvas offcanvas-start bg-dark" id="menuLateral" tabindex="-1">

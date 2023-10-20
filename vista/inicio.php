@@ -34,9 +34,9 @@
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">ASISTENCIA</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">PROYECT</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">ABOUT</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista.php" class="nav-link">ASISTENCIA</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">SALARIO</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">HORARIOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador">SALIR</a></li>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
