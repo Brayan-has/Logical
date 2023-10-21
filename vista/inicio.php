@@ -2,29 +2,6 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-    <h1>BIENVENIDO A LOGICAL</h1>
-
-
-
-    <a href="../vista/login.php">SALIR</a>
-    
-    <h1></h1>
-    
-
-    
-
-    
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logical</title>
@@ -68,19 +45,8 @@
 
 
 
-                        Swal.fire({
-                            title: '¿seguro desea cerrar sesión?',
-                            icon: 'question',
-                            iconHtml: '؟',
-                            confirmButtonText: 'Aceptar',
-                            cancelButtonText: 'Cancelar',
-                            showCancelButton: true,
-                            showCloseButton: true
-                        })
-
-
-                        // var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
-                        // return not;
+                        var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
+                        return not;
                     }
                 </script>
 
@@ -94,9 +60,8 @@
                     <ul class="navbar-nav fs-5 justify-content-evenly">
                         <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">ASISTENCIA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/salario" class="nav-link">SALARIO</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/horario" class="nav-link">EMPLEADOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar"
-                                class="nav-link">ACTUALIZAR DATOS</a></li>
+                        class="nav-link">ACTUALIZAR DATOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador" class="nav-link"
                                 onclick="return salir()">SALIR</a></li>
                     </ul>
@@ -151,18 +116,6 @@
         <?= $_SESSION['cargo'] ?>
     </div>
 
-    <!-- <div class="container">
-        <a href="">Ingresar al sistema</a>
-        <p class="cedula">Ingrese su Cedula</p>
-        <form action="">
-            <input type="text" name="textCedula" placeholder="cedula del empleado">
-            <div class="botones">
-                <a href="" class="entrada">ENTRADA</a>
-                <a href="" class="salida">SALIDA</a>
-            </div>
-        </form>
-    </div> -->
-
 
     <script>
         //creación de hora en tiempo real
@@ -187,26 +140,22 @@
 
     <div class="container">
         <p>Buscar usuarios para agregar asistencia</p>
-        <form method="POST">
+        <form action="" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre del empleado</label>
                 <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Ejemplo: Andres123@gmail.com">
+                    placeholder="Ejemplo: Andres123@gmail.com">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
-    <?php
-
-    include_once "../controlador/administrador/admin.controlador.php"
-        ?>
     <div class="container">
 
-        <table>
+        <table class="table">
             <thead>
-                <th scope="col">id</th>
+                <th scope="row" scope="col">id</th>
                 <th scope="col">nombre</th>
                 <th scope="col">apellido</th>
                 <th scope="col">cedula</th>
@@ -216,67 +165,44 @@
 
             <tbody id="content">
 
+                <?php
+
+                include_once "../controlador/administrador/admin.controlador.php"
+                    ?>
+
             </tbody>
+
         </table>
 
         <script>
 
             getData()
 
-            document.getElementById()
-
             function getData() {
-                let input = document.getElementById('buscar').value
-                let content = document.getElementById('content')
-                let url = "../controlador/administrador/admin.controlador.php";
+
+                let input = document.getElementById("buscar").value
+                let content = document.getElementById("content")
+                let url = "http://localhost/Proyecto%20logical/Logical/vista/inicio";
                 let formData = new FormData()
-                formData.append('campo', input)
+                formData.append('buscar', input)
+
+                //generar petición
                 fetch(url, {
                     method: "POST",
                     body: formData
                 }).then(response => response.json())
                     .then(data => {
-
                         content.innerHTML = data
-                    }).catch(err => console.log())
+                    }).catch(err => console.log(err))
 
             }
+
+
         </script>
 
     </div>
 
 
-
-    <?php
-
-
-    ?>
-
-    <!-- <div class="medio">
-
-        <form action="" method="POST">
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </form>
-    </div> -->
 
 </body>
 

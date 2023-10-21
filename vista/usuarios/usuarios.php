@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <div class="container-fluid">
@@ -20,6 +21,24 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <?php
+            session_start();
+
+            ?>
+
+
+
+            <script>
+                function salirUsuario() {
+
+
+
+
+                    var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
+                    return not;
+                }
+            </script>
 
             <!-- SIDEVAR -->
             <section class="offcanvas offcanvas-start bg-dark" id="menuLateral" tabindex="-1">
@@ -35,18 +54,12 @@
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        
+
                         <li></li>
                         <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../../index"  class="nav-link">SALIR</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../../vista/salario" class="nav-link">SALARIO</li>
+                        <li class="nav-item p-3 py-md-1"><a href="../../controlador/salir.controlador" class="nav-link"
+                                onclick="return salirUsuario()">SALIR</a></li>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
                         <a href="" class="bi bi-hi"><i class="bi bi-github"></i></a>
@@ -60,14 +73,28 @@
 
     </nav>
 
-    <!-- FINAL DE NAVBAR -->
 
 
     
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous">
-    </script>
+    <h1 id="ingreso">BIENVENIDO A LOGICAL</h1>
+
+
+
+    <div class="usuario">
+        <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+    </div>
+    <div class="cargo">
+        <?= $_SESSION['cargo'] ?>
+    </div>
+
+
+    <!-- FINAL DE NAVBAR -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

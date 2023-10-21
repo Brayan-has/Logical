@@ -4,14 +4,20 @@
 session_start();
 
 
+// 
+
+include("../modelo/conexion_bd.php");
+
+
 
 //validar los campos del login básico
-if (!empty("ingresar")) {
+if (!empty($_POST["ingresar"])) {
 
     if (empty($_POST["usuario"]) or empty($_POST["contrasena"])) {
         ?>
 
         <script>
+
             Swal.fire({
                 icon: 'error',
                 title: '',
@@ -24,7 +30,7 @@ if (!empty("ingresar")) {
         $usuario = $_POST['usuario'];
         $contrasena = md5($_POST['contrasena']);
         //
-        $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
+        $sql = $conexion->query("SELECT * FROM empleado,salario WHERE correo = '$usuario' AND contrasena = '$contrasena'");
         $datos = $sql->fetch_object();
         if ($datos) {
             $_SESSION['nombre'] = $datos->nombre;
@@ -33,6 +39,9 @@ if (!empty("ingresar")) {
             $_SESSION['id'] = $datos->id_empleado;
             $_SESSION['correo'] = $datos->correo;
             $_SESSION['cedula'] = $datos->cedula;
+            $_SESSION['salario'] = $datos->salario;
+            $_SESSION['valor'] = $datos->hora_valor;
+            $_SESSION['cantidad'] = $datos->hora_cantidad;
             
             
             //de inicio
