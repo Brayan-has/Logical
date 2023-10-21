@@ -4,13 +4,8 @@
 */
 
 //validar si se ha presionado el boton de REGISTRAR
-<<<<<<< HEAD
-if(!empty($_POST["registro"])){
-    if(empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena'])){
-=======
 if (!empty($_POST["registro"])) {
     if (empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena']) or empty($_POST['cargo'])) {
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
 
     } else {
         //capturamos cada dato del usuario

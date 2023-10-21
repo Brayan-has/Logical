@@ -1,14 +1,6 @@
 <?php
 
 
-<<<<<<< HEAD
-if(!empty("ingresar")){
-
-    if(empty($_POST["usuario"]) or empty($_POST["contrasena"]) ){
-        echo "<div alert alert-danger>UN CAMPO O TODOS LOS CAMPOS ESTÁN VACIOS</div>";
-    }else
-    {
-=======
 session_start();
 
 
@@ -29,17 +21,10 @@ if (!empty("ingresar")) {
         </script>
         <?php
     } else {
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
         $usuario = $_POST['usuario'];
         $contrasena = md5($_POST['contrasena']);
         //
         $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
-<<<<<<< HEAD
-        if ($datos=$sql->fetch_object()) {
-            header("location:inicio.php");
-        } else {
-            echo "<div alert alert-danger>EL USUARIO NO EXISTE</div>";
-=======
         $datos = $sql->fetch_object();
         if ($datos) {
             $_SESSION['nombre'] = $datos->nombre;
@@ -71,14 +56,9 @@ if (!empty("ingresar")) {
                 })
             </script>
             <?php
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
         }
 
     }
 }
 
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
