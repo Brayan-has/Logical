@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-<<<<<<<< HEAD:vista/view.php
-    <a href="vista/login.php">Iniciar sesión</a>
-========
->>>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0:vista/contactos/contactos.php
-</body>
-=======
 <!doctype html>
 <html lang="es">
 
@@ -75,5 +59,4 @@
     </script>
 </body>
 
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
 </html>

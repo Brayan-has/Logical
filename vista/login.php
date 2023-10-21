@@ -7,14 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
-<<<<<<< HEAD
-	<!-- <link rel="stylesheet" href="./assets/css/error.css"> -->
-    <title>INGRESO AL SISTEMA LOGISTICA</title>
-</head>
-
-<body>
-    <div class="container">
-=======
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="./css/error.css">
     <title>Login</title>
@@ -55,7 +47,6 @@
     <div class="container">
         <!-- link hacía la página principal -->
 
->>>>>>> 5d98e49f600699f20ab04559ac530657c80690a0
         <div class="row justify-content-center pt-5 mt-5 m-1">
             <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
 
