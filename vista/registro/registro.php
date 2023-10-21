@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="../vista/css/registro.css">
 </head>
 
@@ -54,42 +55,42 @@
       include("../../controlador/registro.controlador.php");
       ?>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm ml-5" required type="text" name="nombre" placeholder="nombres completos">
+    
+        <input class="form-control form-control-sm ml-5 mb-4" required type="text" name="nombre" placeholder="nombres completos">
       </div>
-      <div class="container" class="form-control px-3">
-        <label></label>
-        <input class="form-control form-control-sm" required type="text" name="apellido" placeholder="apellidos completos">
+      <div class="container" class="form-control px-3 ">
+
+        <input class="form-control form-control-sm mb-4" required type="text" name="apellido" placeholder="apellidos completos">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="text" name="nacimiento"
+       
+        <input class="form-control form-control-sm mb-4" required type="text" name="nacimiento"
           placeholder="año-mes-dia: ejemplo: 2010-08-20">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="number" name="cedula" placeholder="Cedula de ciudadania">
+
+        <input class="form-control form-control-sm mb-4" required type="number" name="cedula" placeholder="Cedula de ciudadania">
       </div>
       <div class="container">
-        <label for=""></label>
-        <input class="form-control form-control-sm" required class="form-control space-right" type="text" name="cargo"
+     
+        <input class="form-control form-control-sm mb-4" required class="form-control space-right" type="text" name="cargo"
           placeholder="Cargo: ejemplo Administrador">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="number" name="telefono" placeholder="Número de teléfono">
+      
+        <input class="form-control form-control-sm mb-4" required type="number" name="telefono" placeholder="Número de teléfono">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="email" name="correo" placeholder="Correo electrónico">
+
+        <input class="form-control form-control-sm mb-4" required type="email" name="correo" placeholder="Correo electrónico">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="password" name="contrasena" placeholder="Contrasena">
+
+        <input class="form-control form-control-sm mb-4" required type="password" name="contrasena" placeholder="Contrasena">
       </div>
       <div class="container">
-        <label></label>
-        <input class="form-control form-control-sm" required type="submit" value="REGISTRARSE" name="registro" id="registro">
+    
+        <input class="form-control form-control-sm mb-4" required type="submit" value="REGISTRARSE" name="registro" id="registro">
       </div>
     </form>
   </div>

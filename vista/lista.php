@@ -61,74 +61,84 @@
     </nav>
 
 
-    <div class="titulo">
-        <H3>ASISTENCIA DE EMPLEADOS</H3>
-    </div>
 
-    <!-- capturar datos session -->
+        <div class="titulo">
+            <H3>ASISTENCIA DE EMPLEADOS</H3>
+        </div>
 
-    <?php
+        <!-- capturar datos session -->
 
-    include_once("../modelo/conexion_bd.php");
-    include_once("../controlador/eliminar.controlador.php");
+        <script>
+            function advertencia() {
+                var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA ELIMINAR LA ASISTENCIA??");
+                return not;
+            }
+        </script>
 
-    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
+        <?php
+
+        include_once("../modelo/conexion_bd.php");
+        include_once("../controlador/eliminar.controlador.php");
+
+        $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
     empleado.id_empleado,empleado.nombre,empleado.apellido,empleado.cedula,cargo.id_cargo,cargo.cargo
     FROM asistencia
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
     INNER JOIN cargo ON empleado.cargo = cargo.cargo;
     ")
-        ?>
+            ?>
 
-    <!-- INICIO TABLAS  -->
-    <div class="tablas">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Empleado</th>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Entrada</th>
-                    <th scope="col">Salida</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-
-                while ($datos = $sql->fetch_object()) { ?>
+        <!-- INICIO TABLAS  -->
+        <div class="tablas">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>
-                            <?= $datos->id_asistencia ?>
-                        </td>
-                        <td>
-                            <?= $datos->nombre . " " . $datos->apellido ?>
-                        </td>
-                        <td>
-                            <?= $datos->cedula ?>
-                        </td>
-                        <td>
-                            <?= $datos->cargo ?>
-                        </td>
-                        <td>
-                            <?= $datos->hora_entrada ?>
-                        </td>
-                        <td>
-                            <?= $datos->hora_salida ?>
-                        <td>
-                            <a href="lista.php?id=<?= $datos->id_asistencia?>" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
-                            
-                         </td>
+                        <th scope="col">Id</th>
+                        <th scope="col">Empleado</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Salida</th>
+                        <th></th>
                     </tr>
+                </thead>
+                <tbody>
+                    <?php
 
-                <?php }
-                ?>
+                    while ($datos = $sql->fetch_object()) { ?>
+                        <tr>
+                            <td>
+                                <?= $datos->id_empleado ?>
+                            </td>
+                            <td>
+                                <?= $datos->nombre . " " . $datos->apellido ?>
+                            </td>
+                            <td>
+                                <?= $datos->cedula ?>
+                            </td>
+                            <td>
+                                <?= $datos->cargo ?>
+                            </td>
+                            <td>
+                                <?= $datos->hora_entrada ?>
+                            </td>
+                            <td>
+                                <?= $datos->hora_salida ?>
+                            <td>
+                                <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
+                                    class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
 
-            </tbody>
-        </table>
-    </div>
+                            </td>
+                        </tr>
 
+                    <?php }
+                    ?>
+
+                </tbody>
+            </table>
+        </div>
+
+   
     <script src="https://kit.fontawesome.com/646ac4fad6.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
