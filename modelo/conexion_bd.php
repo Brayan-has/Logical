@@ -3,7 +3,7 @@
 
 $SERVERNAME= "localhost";
 $USERNAME= "root";
-$PASSWORD="loaiza19";
+$PASSWORD="";
 $DBNAME="logical";
 $PORT ="3306";
 //creacion de la connection
