@@ -94,7 +94,7 @@
 
     <?php
 
-    include_once("../modelo/conexion_bd.php");
+    // include_once("../modelo/conexion_bd.php");
     include_once("../controlador/eliminar.controlador.php");
 
     $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
@@ -123,21 +123,21 @@
             <tbody>
                 <?php
 
-
-                $datos = $sql->fetch_object();
-                while ($datos) { ?>
+              
+                
+                while ($datos = $sql->fetch_object()) { ?>
                     <tr>
                         <td>
-                            <?= $datos->id_empleado ?>
+                            <?=$datos->id_empleado?>
                         </td>
                         <td>
-                            <?= $datos->nombre . " " . $datos->apellido ?>
+                            <?=$datos->nombre?>
                         </td>
                         <td>
-                            <?= $datos->cedula ?>
+                            <?=$datos->cedula?>
                         </td>
                         <td>
-                            <?= $datos->cargo ?>
+                            <?=$datos->cargo?>
                         </td>
                         <td>
                             <?= $datos->hora_entrada ?>
@@ -146,10 +146,10 @@
                             <?= $datos->hora_salida ?>
                         </td>
                         <td>
-                            <?= $datos->jornada ?>
+                            <?= $_SESSION['jornada'] ?>
                         </td>
                         <td>
-                            <?= $datos->area ?>
+                            <?= $_SESSION['area']?>
 
                             <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
                         </td>
