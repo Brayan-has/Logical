@@ -117,10 +117,10 @@
                         <?= $_SESSION['salario'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['hora_cantidad'] ?>
+                        <?= $_SESSION['horas_cantidad'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['hora_valor'] ?>
+                        <?= $_SESSION['horas_valor'] ?>
                     </td>
                     
                 </tr>

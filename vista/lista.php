@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../vista/css/lista.css">
     <link rel="stylesheet" href="../vista/css/lateral.css">
@@ -48,15 +47,14 @@
                         <li></li>
                         <li></li>
                         <?php
-                    
-                        session_start();
+
                         
-                        include_once("../controlador/validar.controlador.php");
+                        include("../controlador/validar.controlador.php");
+
 
                         if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
 
                             echo "<li class='nav-item p-3 py-md-1'><a href='../vista/inicio' class='nav-link'>VOLVER</a></li>";
-
                         } else {
                             echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios' class='nav-link'>VOLVER</a></li>";
                         }
@@ -75,6 +73,11 @@
     </nav>
 
 
+    <?php
+
+
+    ?>
+
 
     <div class="titulo">
         <H3>INDICA LAS TAREAS DE LA SEMANA</H3>
@@ -91,8 +94,7 @@
 
     <?php
 
-
-    // include_once("../modelo/conexion_bd.php");
+    include_once("../modelo/conexion_bd.php");
     include_once("../controlador/eliminar.controlador.php");
 
     $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
@@ -101,7 +103,7 @@
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
     INNER JOIN cargo ON empleado.cargo = cargo.cargo;
     ")
-        ?>
+    ?>
 
     <!-- INICIO TABLAS  -->
     <div class="tablas">
@@ -121,7 +123,9 @@
             <tbody>
                 <?php
 
-                while ($datos = $sql->fetch_object()) { ?>
+
+                $datos = $sql->fetch_object();
+                while ($datos) { ?>
                     <tr>
                         <td>
                             <?= $datos->id_empleado ?>
@@ -133,21 +137,21 @@
                             <?= $datos->cedula ?>
                         </td>
                         <td>
-                            <?= $datos->cargo?>
+                            <?= $datos->cargo ?>
                         </td>
                         <td>
-                            <?= $datos->hora_entrada?>
+                            <?= $datos->hora_entrada ?>
                         </td>
                         <td>
-                            <?= $datos->hora_salida?>
+                            <?= $datos->hora_salida ?>
                         </td>
                         <td>
-                            <?=$_SESSION['jornada']?>   
+                            <?= $datos->jornada ?>
                         </td>
                         <td>
-                            <?= $_SESSION['area']?>
-                        
-                            <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                            <?= $datos->area ?>
+
+                            <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
 
@@ -160,9 +164,8 @@
 
 
     <script src="https://kit.fontawesome.com/646ac4fad6.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
