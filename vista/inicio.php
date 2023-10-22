@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../vista/css/inicio.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../vista/css/laterals">
+    <link rel="stylesheet" href="../vista/css/lateral.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -42,36 +42,18 @@
                 <script>
                     function salir() {
 
-
-
-
-                        Swal.fire({
-                            title: '¿seguro desea cerrar sesión?',
-                            icon: 'question',
-                            iconHtml: '؟',
-                            confirmButtonText: 'Aceptar',
-                            cancelButtonText: 'Cancelar',
-                            showCancelButton: true,
-                            showCloseButton: true
-                        })
-
-
-                        // var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
-                        // return not;
+                        var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
+                        return not;
                     }
                 </script>
-
-
-
 
 
                 <!-- FINAL DE CERRAR SESIÓN -->
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">ASISTENCIA</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">TAREA SEMANA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/salario" class="nav-link">SALARIO</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/horario" class="nav-link">EMPLEADOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar"
                                 class="nav-link">ACTUALIZAR DATOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador" class="nav-link"
@@ -90,67 +72,51 @@
     </nav>
 
 
+    <?php
+    session_start();
+    if (empty($_SESSION["nombre"]) and empty($_SESSION["apellido"])) {
+        header("location: ../vista/login");
+    }
 
-
-
-
-
+    ?>
 
 
     <h1 id="ingreso">BIENVENIDO A LOGICAL</h1>
 
+    <div class="sidebar">
+
+        <!-- FOTO -->
+        <div id="lateral">
+
+            <p>USUARIO</p>
+        </div>
+        <div class="cargo">
+            <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+        </div>
+        
+        <!-- nombre y apellido -->
+        
+        
+        
+        
+        <div class="cargo-superior">
+
+            <div class="cargo">
+                <?= $_SESSION['cargo'] ?>
+            </div>
+        </div>
+    </div>
+
     <div class="user">
-        <!-- capturar nomrbe apellido -->
-        <?php
-        session_start();
-        if (empty($_SESSION["nombre"]) and empty($_SESSION["apellido"])) {
-            header("location: ../vista/login");
-        }
-
-        ?>
+        <!-- si estos datos están vacios el usario no está logeado y no podrá ingresar a su apartado -->
     </div>
 
-
-    <div id="lateral">
-        <p></p>
-
-    </div>
 
     <h3 id="fecha"></h3>
 
 
-
     <!---ingresar al--->
-    <div class="usuario">
-        <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
-    </div>
-    <div class="cargo">
-        <?= $_SESSION['cargo'] ?>
-    </div>
 
-    <!-- <div class="container">
-        <a href="">Ingresar al sistema</a>
-        <p class="cedula">Ingrese su Cedula</p>
-        <form action="">
-            <input type="text" name="textCedula" placeholder="cedula del empleado">
-            <div class="botones">
-                <a href="" class="entrada">ENTRADA</a>
-                <a href="" class="salida">SALIDA</a>
-            </div>
-        </form>
-    </div> -->
-
-
-    <script>
-        //creación de hora en tiempo real
-        //set interval: intervalos
-        setInterval(() => {
-            let fecha = new Date();
-            let fechaHora = fecha.toLocaleString();
-            document.getElementById("fecha").textContent = fechaHora;
-        }, 1000);
-
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -161,100 +127,116 @@
         </script>
 
 
+    <div class="padre">
 
-    <div class="container">
-        <p>Buscar usuarios para agregar asistencia</p>
-        <form method="POST">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nombre del empleado</label>
-                <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Ejemplo: Andres123@gmail.com">
-            </div>
+        <div class="container">
+            <h1>Buscar usuarios</h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre del empleado</label>
+                    <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
+                        placeholder="Ejemplo: Andres123@gmail.com">
+                </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 
-    <?php
-
-    include_once "../controlador/administrador/admin.controlador.php"
-        ?>
-    <div class="container">
-
-        <table>
-            <thead>
-                <th scope="col">id</th>
-                <th scope="col">nombre</th>
-                <th scope="col">apellido</th>
-                <th scope="col">cedula</th>
-                <th scope="col">correo</th>
-                <th scope="col">cargo</th>
-            </thead>
-
-            <tbody id="content">
-
-            </tbody>
-        </table>
-
-        <script>
-
-            getData()
-
-            document.getElementById()
-
-            function getData() {
-                let input = document.getElementById('buscar').value
-                let content = document.getElementById('content')
-                let url = "../controlador/administrador/admin.controlador.php";
-                let formData = new FormData()
-                formData.append('campo', input)
-                fetch(url, {
-                    method: "POST",
-                    body: formData
-                }).then(response => response.json())
-                    .then(data => {
-
-                        content.innerHTML = data
-                    }).catch(err => console.log())
-
-            }
-        </script>
-
-    </div>
-
-
-
-    <?php
-
-
-    ?>
-
-    <!-- <div class="medio">
-
-        <form action="" method="POST">
+        <div class="container">
 
             <table class="table">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
+                    <th scope="row" scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">apellido</th>
+                    <th scope="col">cedula</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">cargo</th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+
+                <tbody id="content">
+
+                    <?php
+
+                    include_once "../controlador/administrador/admin.controlador.php"
+                        ?>
 
                 </tbody>
-            </table>
-        </form>
-    </div> -->
 
+            </table>
+
+            <script>
+
+                getData()
+
+                function getData() {
+
+                    let input = document.getElementById("buscar").value
+                    let content = document.getElementById("content")
+                    let url = "http://localhost/Proyecto%20logical/Logical/vista/inicio";
+                    let formData = new FormData()
+                    formData.append('buscar', input)
+
+                    //generar petición
+                    fetch(url, {
+                        method: "POST",
+                        body: formData
+                    }).then(response => response.json())
+                        .then(data => {
+                            content.innerHTML = data
+                        }).catch(err => console.log(err))
+
+                }
+
+
+            </script>
+
+        </div>
+
+
+
+
+        <!-- Sección para formulario de las tareas -->
+
+        <?php include_once "../controlador/administrador/tareas.controlador.php" ?>
+
+        <div class="container">
+            <h1>Ingresa los datos para agregar a un ususario a 'TAREA SEMANA' </h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Id de usuario</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Ejemplo: 10" name="id_empleado">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Empresa</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Exito"
+                        name="empresa">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Hora de entrada</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 9:00 am"
+                        name="entrada">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Hora de salida</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 5:20 pm"
+                        name="salida">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Jornada</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Diurno"
+                        name="jornada">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Area</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1"
+                        placeholder="Ejemplo: Almacenamiento" name="area">
+                </div>
+                <input type="submit" class="btn btn-primary" name="tarea">Registrar tarea</input>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

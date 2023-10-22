@@ -5,9 +5,27 @@ include_once "../modelo/conexion_bd.php";
 $columnas = ['id_empleado', 'nombre', 'apellido', 'cedula', 'correo', 'cargo'];
 $tablas = "empleado";
 
-$campo = isset($_POST['buscar']) ? $conexion->real_escape_string($_POST["buscar"]) : NULL;
-$sql = "SELECT" . implode(", ", $columnas) . "
-FROM $tablas";
+$campo = isset($_POST['buscar']) ? $conexion->real_escape_string($_POST['buscar']) : null;
+
+
+$where = '';
+
+if($campo != null){
+    $where = "WHERE (";
+
+    $count = count($columnas);
+    for($i = 0; $i < $count; $i++){
+        $where .= $columnas[$i] . " LIKE '%" . $campo ."%' or ";
+    }
+    $where = substr_replace($where, "", -3);
+    $where .= ")";
+}
+
+
+$sql = "SELECT" . " ". implode(", ", $columnas) . "
+FROM $tablas
+$where";
+
 $resultado = $conexion->query($sql);
 
 $num_rows = $resultado->num_rows;
@@ -22,8 +40,6 @@ if ($num_rows > 0) {
         $html .= '<td>'.$row['cedula'].'</td>';
         $html .= '<td>'.$row['correo'].'</td>';
         $html .= '<td>'.$row['cargo'].'</td>';
-        $html .= '<td><a href="">Editar</a></td>';
-        $html .= '<td><a href="">Eliminar</a></td>';
         $html .= '</tr>';
     }
 } else {

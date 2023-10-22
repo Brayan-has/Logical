@@ -4,10 +4,10 @@ RewriteEngine On
 Options All -Indexes
 
 #regla para poder usar url amigable
-#RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+
 
 #error 404
-ErrorDocument 404 http://localhost/Proyecto%20logical/Logical/vista/error/404.html
+ErrorDocument 404 http://localhost/Proyecto%20logical/Logical/vista/error/404
 
 #regla para ocultar la extensión .html,php etc.
 RewriteCond %{REQUEST_FILENAME} !-d

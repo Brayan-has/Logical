@@ -6,6 +6,7 @@ if (!empty($_GET['id'])) {
 
     $id = $_GET['id'];
     $sql = $conexion->query("DELETE FROM asistencia WHERE id_asistencia =$id");
+  
     if ($sql == true) { 
 
         echo "<div class='alert alert-success' role='alert'>ASISTENCIA ELIMINADA CORRECTAMENTE</div>"; 
