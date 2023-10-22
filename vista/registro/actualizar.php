@@ -69,50 +69,51 @@
 
     <h4>Actualizar datos</h4>
 
+    <?php include_once "../../controlador/administrador/actualizar.controlador.php";?>
 
-    <form>
+    <form action="" method="POST">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
+            <label for="exampleInputEmail1">Nombre</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="nombre-usuario" aria-describedby="emailHelp"
+                placeholder="Enter email" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
+            <label for="exampleInputPassword1">Apellido</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="apellido-usuario" placeholder="ejemplo:" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
+            <label for="exampleInputEmail1">Cedula</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="cedula-usuario" aria-describedby="emailHelp"
+                placeholder="Enter email" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
+            <label for="exampleInputPassword1">Fecha de nacimiento</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="fecha-nacimiento" placeholder="ejemplo:" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
+            <label for="exampleInputEmail1">Correo</label>
+            <input type="text" class="form-control" id="exampleInputEmail1"  name="correo-usuario" aria-describedby="emailHelp"
+                placeholder="Enter email" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
+            <label for="exampleInputPassword1">Cargo</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="cargo-usuario" placeholder="ejemplo:" value="">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
+            <label for="exampleInputEmail1">Teléfono</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="telefono-usuario" aria-describedby="emailHelp"
+                placeholder="Enter email" value="" >
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+       
+        <input type="submit" class="btn btn-primary" name="enviar" value="Actualizar">Actualizar</input>
+
     </form>
+  
+
     <div class="formularioUno">
     </div>
 
-    <h4>Actualizar datos</h4>
+    <h4>Eliminar Usuario</h4>
 
 
     <div class="formulario1">
@@ -131,29 +132,8 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter email">
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+          
+            <input type="submit" class="btn btn-primary">Eliminar</input>
         </form>
     </div>
 

@@ -48,9 +48,11 @@
                         <li></li>
                         <li></li>
                         <?php
+                    
                         session_start();
+                        
+                        include_once("../controlador/validar.controlador.php");
 
-                        include("../controlador/validar.controlador.php");
                         if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
 
                             echo "<li class='nav-item p-3 py-md-1'><a href='../vista/inicio' class='nav-link'>VOLVER</a></li>";
@@ -90,7 +92,7 @@
     <?php
 
 
-
+    // include_once("../modelo/conexion_bd.php");
     include_once("../controlador/eliminar.controlador.php");
 
     $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
@@ -131,16 +133,16 @@
                             <?= $datos->cedula ?>
                         </td>
                         <td>
-                            <?= $datos->cargo ?>
+                            <?= $datos->cargo?>
                         </td>
                         <td>
-                            <?= $datos->hora_entrada ?>
+                            <?= $datos->hora_entrada?>
                         </td>
                         <td>
-                            <?= $datos->hora_salida ?>
+                            <?= $datos->hora_salida?>
                         </td>
                         <td>
-                            <?=$_SESSION['jornada']?>
+                            <?=$_SESSION['jornada']?>   
                         </td>
                         <td>
                             <?= $_SESSION['area']?>
