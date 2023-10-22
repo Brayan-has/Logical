@@ -9,6 +9,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../vista/css/lista.css">
+    <link rel="stylesheet" href="../vista/css/lateral.css">
 </head>
 
 <body>
@@ -88,7 +89,8 @@
 
     <?php
 
-    // include_once("../modelo/conexion_bd.php");
+
+
     include_once("../controlador/eliminar.controlador.php");
 
     $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,

@@ -40,8 +40,8 @@ if ($num_rows > 0) {
         $html .= '<td>'.$row['cedula'].'</td>';
         $html .= '<td>'.$row['correo'].'</td>';
         $html .= '<td>'.$row['cargo'].'</td>';
-        $html .= '<td><a href="">Editar</a></td>';
-        $html .= '<td><a href="../../vista/inicio">Eliminar</a></td>';
+        // $html .= '<td><a href="">Editar</a></td>';
+        // $html .= '<td><a href="../../vista/inicio">Eliminar</a></td>';
         $html .= '</tr>';
     }
 } else {

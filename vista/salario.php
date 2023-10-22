@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../vista/css/inicio.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../vista/css/lateral.css">
 </head>
 
 <body>
@@ -49,6 +50,7 @@
                         <li></li>
                         <?php
 
+                        include("../controlador/validar.controlador.php");
                         session_start();
 
 
@@ -115,10 +117,10 @@
                         <?= $_SESSION['salario'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['cantidad'] ?>
+                        <?= $_SESSION['hora_cantidad'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['valor'] ?>
+                        <?= $_SESSION['hora_valor'] ?>
                     </td>
                     
                 </tr>

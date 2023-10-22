@@ -4,7 +4,8 @@
     border-radius: 500px;
     height: 200px;
     width: 250px;
-    background-image: url(../img/user.png);
+    /* background-image: url(../img/user.png); */
+    
 
 }
 
@@ -19,12 +20,50 @@
     text-align: center;
 
 }
-.buscar{
+/* .buscar{
 
    margin-left: 900px;
     width: 200px;
+} */
+body{
+
+    background-color: #82b9f0;
 }
-.medio{
+
+.sidebar{
+
+    background-color: #39434d;
+    height: 210px;
+    width: 100%;
+    opacity: 0.6;
+    margin: 10px;
+    padding: 10px;
+    
+}
+ .cargo{
+
+    color: white;
+    font-size: 40px;
+}
 
 
+.cargo-superior{
+
+    background-color: #252729;
+    padding: 10px;
+    
 }
+ 
+#ingreso{
+
+    text-align: center;
+    font-size: 40px;
+    color:rgb(32, 117, 117)
+}
+
+
+.padre{
+    margin-left: 350px;
+    margin-top: 300px;
+    
+}   
