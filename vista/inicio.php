@@ -41,10 +41,7 @@
 
                 <script>
                     function salir() {
-
-
-
-
+                        
                         var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA CERRAR SESIÓN??");
                         return not;
                     }

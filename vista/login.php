@@ -43,10 +43,15 @@
 
     </nav>
 
-                    <?php
-                    include("../controlador/validar.controlador.php");
-            
-                    ?>
+    <?php
+    include("../modelo/conexion_bd.php");
+    include("../controlador/validar.controlador.php");
+
+    ?>
+
+
+
+
 
 
     <div class="container">
@@ -68,7 +73,8 @@
                     </div>
 
                     <div class="form-group mx-sm-4 pb-2">
-                        <input type="submit" class="btn btn-block ingresar" value="INGRESAR" name="ingresar" onclick="loging()">
+                        <input type="submit" class="btn btn-block ingresar" value="INGRESAR" name="ingresar"
+                            >
                     </div>
                     <!-- <div class="form-group mx-sm-4 text-right">
                         <span class=""><a href="./vista/recuperar/recuperar.php" class="olvide">Olvide mi contraseña</a></span>

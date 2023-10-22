@@ -56,7 +56,7 @@ if (!empty($_POST["tarea"])){
 
         <?php }
 
-        // $sql = $conexion->query("INSERT INTO cargo (cargo) VALUES ($cargo);");
+
 
     }
 

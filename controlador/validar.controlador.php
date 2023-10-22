@@ -1,7 +1,7 @@
 <?php
 
 
-// session_start();
+session_start();
 
 
 // 
@@ -30,7 +30,7 @@ if (!empty($_POST["ingresar"])) {
         $usuario = $_POST['usuario'];
         $contrasena = md5($_POST['contrasena']);
         //
-        $sql = $conexion->query("SELECT * FROM empleado,salario,asistencia WHERE correo = '$usuario' AND contrasena = '$contrasena'");
+        $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
         $datos = $sql->fetch_object();
         if ($datos) {
             $_SESSION['nombre'] = $datos->nombre;
@@ -43,17 +43,19 @@ if (!empty($_POST["ingresar"])) {
             $_SESSION['jornada'] = $datos->jornada;
             $_SESSION['area'] = $datos->area;
 
-            
-            
-            
+
+
+
             //de inicio
-            if ($datos->cargo == "Supervisor" || $datos->cargo == "Administrador"
-                || $datos->cargo == "Supervisora" || $datos->cargo == "Administradora"
-            ) {
-                header("location:inicio");
-            } else {
-                header("location:usuarios/usuarios");
+            if ($datos->cargo == "Supervisor" || $datos->cargo == "Administrador"|| $datos->cargo == "Supervisora" || $datos->cargo == "Administradora"){
+                
+                header("location: ../vista/inicio");
+
+            }else {
+                header("location: usuarios/usuarios");
             }
+
+
         } else {
 
             ?>
