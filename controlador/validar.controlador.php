@@ -31,14 +31,7 @@ if (!empty($_POST["ingresar"])) {
         $usuario = $_POST['usuario'];
         $contrasena = md5($_POST['contrasena']);
         //
-        $sql = $conexion->query("SELECT * FROM empleado WHERE correo = '$usuario' AND contrasena = '$contrasena'");
-
-        if ($datos=$sql->fetch_object()) {
-            header("location:inicio.php");
-        } else {
-            echo "<div alert alert-danger>EL USUARIO NO EXISTE</div>";
-        }
-
+        $sql = $conexion->query("SELECT * FROM empleado,asistencia,salario WHERE correo = '$usuario' AND contrasena = '$contrasena'");
         $datos = $sql->fetch_object();
         if ($datos) {
 
@@ -53,8 +46,8 @@ if (!empty($_POST["ingresar"])) {
             $_SESSION['salario'] = $datos->salario;
             $_SESSION['jornada'] = $datos->jornada;
             $_SESSION['area'] = $datos->area;
-            $_SESSION['hora_cantidad'] = $datos->hora_cantidad;
-            $_SESSION['hora_valor'] = $datos->hora_valor;
+            $_SESSION['horas_cantidad'] = $datos->horas_cantidad;
+            $_SESSION['horas_valor'] = $datos->horas_valor;
 
 
 
@@ -83,6 +76,7 @@ if (!empty($_POST["ingresar"])) {
             </script>
             <?php
         }
+
 
 
     }

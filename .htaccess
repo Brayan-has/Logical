@@ -7,7 +7,7 @@ Options All -Indexes
 
 
 #error 404
-ErrorDocument 404 http://localhost/Proyecto%20logical/Logical/vista/error/404
+ErrorDocument 404 http://localhost/loginlog/vista/error/404
 
 #regla para ocultar la extensión .html,php etc.
 RewriteCond %{REQUEST_FILENAME} !-d
