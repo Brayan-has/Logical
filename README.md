@@ -134,6 +134,27 @@ De igual forma, suelen ocurrir errores en cuanto a la marcación e identificaci�
 ![error de ruteo](https://image.slidesharecdn.com/erroryestabilidad-111207142040-phpapp01/95/erroryestabilidad-13-728.jpg?cb=1323269338)
 
 
+# Tecnologias usadas
+
+- php ![php](https://www.alamy.es/imagenes/php.html?sortBy=relevant)
+
+- html5 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
+- javascript ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+- css ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+# Uso practico de la aplicacion 
+### Administrar usuarios
+esta tarea de administracion de usuarios ***especifica o incluyen el establecimiento de muchas preferencias del usuario*** y el cambio de contraseñas y roles de ellos, incluso tienen filtros de datos de todo suceso y la preferencia de listas de sucesos. y ademas cualquier usuario puede cambiar su propia contraseña, correo e.t.c...
+
+![administracion de usuarios](https://www.nutrimind.net/images/news/usurio_administrador.jpg)
+### Administrar tareas 
+la administracion de tareas **tiene como rol el aprovechamiento de cumplir muchas funciones** y vamos a empezar explicándote de una forma sencilla que es exactamente ese administrador de tareas sobre el que seguramente has escuchado hablar cuando alguien te expone soluciones para muchos problemas de programas del ordenador y entre muchas otras cosas  
+
+![administracion de tareas](https://ablog.managemart.com/images/o_1dnpgpc711vd4r5d5e781f10vs8.png)
+
+
 
 
 
