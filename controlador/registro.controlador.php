@@ -6,7 +6,19 @@
 //validar si se ha presionado el boton de REGISTRAR
 if (!empty($_POST["registro"])) {
     if (empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena']) or empty($_POST['cargo'])) {
+        ?>
+            
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: 'LOS CAMPOS NO PUEDEN ESTAR VACIOS',
+                footer: ''
+            })
+        </script>
+     
 
+        <?php
     } else {
         //capturamos cada dato del usuario
         //tabla de empleado
@@ -29,15 +41,25 @@ if (!empty($_POST["registro"])) {
 
             <script>
                 Swal.fire(
-                    '¡USUARIO REGISTRADO CORRECTAMENTE!',
+                    '¡USUARIO REGISTRADO CORRECTAMENTE! :)',
                     '',
                     'success'
                 )
             </script>
 
-        <?php } else {
-            echo "error";
-        }
+        <?php } else {?>
+           
+
+
+           <script>
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: 'PROCESO FALLIDO :(',
+                footer: ''
+            })
+        </script>
+        <?php }
 
         // $sql = $conexion->query("INSERT INTO cargo (cargo) VALUES ($cargo);");
 

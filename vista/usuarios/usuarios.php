@@ -57,9 +57,11 @@
 
                         <li></li>
                         <li></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../../vista/salario" class="nav-link">SALARIO</li>
-                        <li class="nav-item p-3 py-md-1"><a href="../../controlador/salir.controlador" class="nav-link"
-                                onclick="return salirUsuario()">SALIR</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../../vista/lista" class="nav-link">TAREA SEMANA</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../../vista/salario" 
+                        class="nav-link">SALARIO</a></li>
+                            
+                        <li class="nav-item p-3 py-md-1"><a href="../../controlador/salir.controlador" class="nav-link"onclick="return salirUsuario()">SALIR</a></li>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
                         <a href="" class="bi bi-hi"><i class="bi bi-github"></i></a>
@@ -78,6 +80,19 @@
     
     <h1 id="ingreso">BIENVENIDO A LOGICAL</h1>
 
+
+
+    
+    <div class="user">
+        <!-- si estos datos están vacios el usario no está logeado y no podrá ingresar a su apartado -->
+        <?php
+        // session_start();
+        if (empty($_SESSION["nombre"]) and empty($_SESSION["apellido"])) {
+            header("location: ../../vista/login");
+        }
+
+        ?>
+    </div>
 
 
     <div class="usuario">

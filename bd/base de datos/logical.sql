@@ -37,6 +37,7 @@ CREATE TABLE asistencia(
     empresa VARCHAR(150),
     hora_entrada VARCHAR(150),
     hora_salida VARCHAR(150),
+    jornada VARCHAR (150),
     CONSTRAINT fk_asistencia FOREIGN KEY (id_asistencia) REFERENCES empleado(id_empleado)
     ON DELETE CASCADE
     );

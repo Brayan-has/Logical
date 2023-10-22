@@ -46,7 +46,18 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/inicio" class="nav-link">VOLVER</a></li>
+                        <?php
+                        session_start();
+
+                        include("../controlador/validar.controlador.php");
+                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
+
+                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista/inicio' class='nav-link'>VOLVER</a></li>";
+
+                        } else {
+                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios' class='nav-link'>VOLVER</a></li>";
+                        }
+                        ?>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
                         <a href="" class="bi bi-hi"><i class="bi bi-github"></i></a>
@@ -62,83 +73,88 @@
 
 
 
-        <div class="titulo">
-            <H3>ASISTENCIA DE EMPLEADOS</H3>
-        </div>
+    <div class="titulo">
+        <H3>INDICA LAS TAREAS DE LA SEMANA</H3>
+    </div>
 
-        <!-- capturar datos session -->
+    <!-- capturar datos session -->
 
-        <script>
-            function advertencia() {
-                var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA ELIMINAR LA ASISTENCIA??");
-                return not;
-            }
-        </script>
+    <script>
+        function advertencia() {
+            var not = confirm("¿¿ESTÁS SEGURO O SEGURA QUE DESEA ELIMINAR LA ASISTENCIA??");
+            return not;
+        }
+    </script>
 
-        <?php
+    <?php
 
-        include_once("../modelo/conexion_bd.php");
-        include_once("../controlador/eliminar.controlador.php");
+    // include_once("../modelo/conexion_bd.php");
+    include_once("../controlador/eliminar.controlador.php");
 
-        $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
+    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
     empleado.id_empleado,empleado.nombre,empleado.apellido,empleado.cedula,cargo.id_cargo,cargo.cargo
     FROM asistencia
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
     INNER JOIN cargo ON empleado.cargo = cargo.cargo;
     ")
-            ?>
+        ?>
 
-        <!-- INICIO TABLAS  -->
-        <div class="tablas">
-            <table class="table">
-                <thead>
+    <!-- INICIO TABLAS  -->
+    <div class="tablas">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id empleado</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Entrada</th>
+                    <th scope="col">Salida</th>
+                    <th scope="col">Jornada</th>
+                    <th scope="col">Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                while ($datos = $sql->fetch_object()) { ?>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Empleado</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Cargo</th>
-                        <th scope="col">Entrada</th>
-                        <th scope="col">Salida</th>
-                        <th></th>
+                        <td>
+                            <?= $datos->id_empleado ?>
+                        </td>
+                        <td>
+                            <?= $datos->nombre . " " . $datos->apellido ?>
+                        </td>
+                        <td>
+                            <?= $datos->cedula ?>
+                        </td>
+                        <td>
+                            <?= $datos->cargo ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_entrada ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_salida ?>
+                        </td>
+                        <td>
+                            <?=$_SESSION['jornada']?>
+                        </td>
+                        <td>
+                            <?= $_SESSION['area']?>
+                        
+                            <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php
 
-                    while ($datos = $sql->fetch_object()) { ?>
-                        <tr>
-                            <td>
-                                <?= $datos->id_empleado ?>
-                            </td>
-                            <td>
-                                <?= $datos->nombre . " " . $datos->apellido ?>
-                            </td>
-                            <td>
-                                <?= $datos->cedula ?>
-                            </td>
-                            <td>
-                                <?= $datos->cargo ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_entrada ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_salida ?>
-                            <td>
-                                <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
-                                    class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                <?php }
+                ?>
 
-                            </td>
-                        </tr>
+            </tbody>
+        </table>
+    </div>
 
-                    <?php }
-                    ?>
 
-                </tbody>
-            </table>
-        </div>
-
-   
     <script src="https://kit.fontawesome.com/646ac4fad6.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

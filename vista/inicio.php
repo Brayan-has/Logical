@@ -58,10 +58,10 @@
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">ASISTENCIA</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">TAREA SEMANA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/salario" class="nav-link">SALARIO</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar"
-                        class="nav-link">ACTUALIZAR DATOS</a></li>
+                                class="nav-link">ACTUALIZAR DATOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador" class="nav-link"
                                 onclick="return salir()">SALIR</a></li>
                     </ul>
@@ -88,7 +88,7 @@
     <h1 id="ingreso">BIENVENIDO A LOGICAL</h1>
 
     <div class="user">
-        <!-- capturar nomrbe apellido -->
+        <!-- si estos datos están vacios el usario no está logeado y no podrá ingresar a su apartado -->
         <?php
         session_start();
         if (empty($_SESSION["nombre"]) and empty($_SESSION["apellido"])) {
@@ -120,11 +120,11 @@
     <script>
         //creación de hora en tiempo real
         //set interval: intervalos
-        setInterval(() => {
-            let fecha = new Date();
-            let fechaHora = fecha.toLocaleString();
-            document.getElementById("fecha").textContent = fechaHora;
-        }, 1000);
+        // setInterval(() => {
+        //     let fecha = new Date();
+        //     let fechaHora = fecha.toLocaleString();
+        //     document.getElementById("fecha").textContent = fechaHora;
+        // }, 1000);
 
     </script>
 
@@ -139,7 +139,7 @@
 
 
     <div class="container">
-        <p>Buscar usuarios para agregar asistencia</p>
+        <h1>Buscar usuarios</h1>
         <form action="" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre del empleado</label>
@@ -203,6 +203,43 @@
     </div>
 
 
+
+
+    <!-- Sección para formulario de las tareas -->
+
+    <?php include_once "../controlador/administrador/tareas.controlador.php"?>
+
+    <div class="container">
+        <h1>Ingresa los datos para agregar a un ususario a 'TAREA SEMANA' </h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Id de usuario</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Ejemplo: 10" name="id_empleado">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Empresa</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Exito" name="empresa">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Hora de entrada</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 9:00 am" name="entrada">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Hora de salida</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 5:20 pm" name="salida">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Jornada</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Diurno" name="jornada">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Area</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Almacenamiento" name="area">
+            </div>
+            <input type="submit" class="btn btn-primary" name="tarea">Registrar tarea</input>
+        </form>
+    </div>
 
 </body>
 

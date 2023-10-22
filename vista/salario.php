@@ -35,8 +35,8 @@
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        
-                        
+
+
                         <li></li>
                         <li></li>
                         <li></li>
@@ -48,23 +48,21 @@
                         <li></li>
                         <li></li>
                         <?php
-                            
-                            session_start();
-                            
-                            include_once("../modelo/conexion_bd.php");
-                            
-                            // $usuario = $_POST['usuario'];
 
-                            // $sql = $conexion->query("SELECT * FROM empleado,salario WHERE correo = '$usuario'");
-                            //  $datos = $sql->fetch_object();
+                        session_start();
 
-                            if($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador"){
-                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista//inicio'
-                            class='nav-link'>VOLVER</a></li>";
-                            }else{
-                                echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios'
+
+                       
+
+
+
+                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
+                            echo "<li class='nav-item p-3 py-md-1'>" . "<a href='../vista/inicio'
                                 class='nav-link'>VOLVER</a></li>";
-                            }
+                        } else {
+                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios'
+                                class='nav-link'>VOLVER</a></li>";
+                        }
                         ?>
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
@@ -86,6 +84,7 @@
     <!-- FINAL DE NAVBAR -->
 
     <div class="container">
+
         <table class="table">
             <thead>
                 <tr>
@@ -100,9 +99,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">
+                    <td scope="row">
                         <?= $_SESSION['id'] ?>
-                    </th>
+                    </td>
                     <td>
                         <?= $_SESSION['nombre'] ?>
                     </td>
@@ -121,6 +120,7 @@
                     <td>
                         <?= $_SESSION['valor'] ?>
                     </td>
+                    
                 </tr>
 
             </tbody>
