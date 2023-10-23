@@ -23,26 +23,44 @@
         <div class="container-fluid">
             <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
 
-            <!---<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-<span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-</button> -->
-
-
-
-
+            <!-- SIDEVAR -->
             <section class="offcanvas offcanvas-start bg-dark" id="menuLateral" tabindex="-1">
+
+                <div class="canvas-header d-lg-none" data-bs-theme="dark">
+                    <h5 class="offcanvas-title text-info">cerrar</h5>
+
+                    <!-- boton para pantallas pequeñas -->
+                    <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas">
+
+                    </button>
+                </div>
+                <!-- PREGUNTAR AL USUARIO SI DESEA CERRAR SESIÓN -->
+
+
+<!-- FINAL DE CERRAR SESIÓN -->
                 <!-- ENLANCES DEL NAVBAR -->
                 <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
                     <ul class="navbar-nav fs-5 justify-content-evenly">
-                        <!-- <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">HOME</a></li> -->
-                        <!-- <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">SOBRE LOGICAL</a></li> -->
-                        <li class="nav-item p-3 py-md-1"><a href="../../vista/login" class="nav-link">INGRESAR</a></li>
-                    </ul>
 
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li class="nav-item p-3 py-md-1"><a href="../../vista/login" class="nav-link">INGRESAR</a></li>
+
+                    </ul>
+                  
                 </div>
             </section>
         </div>
+
+    </nav>
         <!---FINAL DEL NAVBAR-->
 
 
@@ -78,4 +96,15 @@
 
 
 
+
 </body>
+
+<footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</footer>

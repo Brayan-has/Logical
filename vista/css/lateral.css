@@ -63,8 +63,13 @@ body{
 
 
 .padre{
-    margin-left: 350px;
-    margin-top: 300px;
+    
+    padding-right: 100px;
     
 }   
 
+.centro{
+
+
+    padding: 100px;
+}

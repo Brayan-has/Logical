@@ -1,6 +1,6 @@
 <?php
 
-// include("../../modelo/conexion_bd.php");
+
 
 if(!empty($_POST['confirmar'])){
 
@@ -30,7 +30,7 @@ VALUES ($confirmar_id,'$confirmar_cargo')");
           Swal.fire({
               icon: 'error',
               title: '',
-              text: 'PROCESO FALLIDO :(',
+              text: 'LOS CAMPOS NO PUEDEN ESTAR VACIOS :(',
               footer: ''
           })
       </script>

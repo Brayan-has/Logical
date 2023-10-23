@@ -101,7 +101,7 @@
           id="registro">
       </div>
       <div>
-        <a href="../../vista/usuarios/nuevo.php">Siguiente</a>
+        <a href="../../vista/usuarios/nuevo">Siguiente</a>
       </div>
     </form>
   </div>
