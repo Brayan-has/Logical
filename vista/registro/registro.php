@@ -36,7 +36,7 @@
           <ul class="navbar-nav fs-5 justify-content-evenly">
             <!-- <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">HOME</a></li> -->
             <!-- <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">SOBRE LOGICAL</a></li> -->
-            <li class="nav-item p-3 py-md-1"><a href="../../vista/login" class="nav-link">INGRESAR</a></li>
+            <!-- <li class="nav-item p-3 py-md-1"><a href="../../vista/login" class="nav-link">INGRESAR</a></li> -->
           </ul>
 
         </div>
@@ -97,8 +97,11 @@
       </div>
       <div class="container">
 
-        <input class="form-control form-control-sm mb-4"  type="submit" value="REGISTRARSE" name="registro"
+        <input class="form-control form-control-sm mb-4"  type="submit" value="CONFIRMAR" name="registro"
           id="registro">
+      </div>
+      <div>
+        <a href="../../vista/usuarios/nuevo.php">Siguiente</a>
       </div>
     </form>
   </div>

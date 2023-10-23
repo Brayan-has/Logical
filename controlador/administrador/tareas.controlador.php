@@ -27,6 +27,7 @@ if (!empty($_POST["tarea"])){
         $hora_salida = $_POST["salida"];
         $jornada = $_POST["jornada"];
         $_SESSION['J'] = $jornada;
+        $cargos = $_SESSION['cargo'];
 
 
         $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada')");
