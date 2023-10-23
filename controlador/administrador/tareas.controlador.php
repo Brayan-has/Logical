@@ -7,6 +7,7 @@ if (!empty($_POST["tarea"])){
     if (empty($_POST["id_empleado"]) or empty($_POST["empresa"]) or empty($_POST["entrada"]) or empty($_POST["salida"]) or empty($_POST["jornada"]) or empty($_POST["area"])){
         ?>
 
+        <!-- sweet alert para una interfaz de alerta visualmente amigable -->
         <script>
 
             Swal.fire({
@@ -27,11 +28,15 @@ if (!empty($_POST["tarea"])){
         $hora_salida = $_POST["salida"];
         $jornada = $_POST["jornada"];
         $_SESSION['J'] = $jornada;
+        $cargos = $_SESSION['cargo'];
 
 
+        //se insertan los datos capturados a la tablas asistencia
         $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada')");
 
 
+        //en caso de devolver un valor verdadero 
+        //mostrar un sweet alert de registro correcto de tarea, mostrar que no fue posible en caso contrario
         if ($sql_insert == true) { ?>
 
 

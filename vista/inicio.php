@@ -93,12 +93,12 @@
         <div class="cargo">
             <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
         </div>
-        
+
         <!-- nombre y apellido -->
-        
-        
-        
-        
+
+
+
+
         <div class="cargo-superior">
 
             <div class="cargo">
@@ -108,28 +108,16 @@
     </div>
 
     <div class="user">
-        <!-- si estos datos están vacios el usario no está logeado y no podrá ingresar a su apartado -->
+       
     </div>
 
 
-    <h3 id="fecha"></h3>
 
 
-    <!---ingresar al--->
 
+    <div class="padre" >
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
-
-    <div class="padre">
-
-        <div class="container">
+        <div class="container-fluid">
             <h1>Buscar usuarios</h1>
             <form action="" method="POST">
                 <div class="form-group">
@@ -142,7 +130,7 @@
             </form>
         </div>
 
-        <div class="container">
+        <div class="form-group">
 
             <table class="table">
                 <thead>
@@ -200,7 +188,7 @@
 
         <?php include_once "../controlador/administrador/tareas.controlador.php" ?>
 
-        <div class="container">
+        <div class="container-fluid" id="agregar">
             <h1>Ingresa los datos para agregar a un ususario a 'TAREA SEMANA' </h1>
             <form action="" method="POST">
                 <div class="form-group">
@@ -238,5 +226,14 @@
         </div>
     </div>
 </body>
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</footer>
 
 </html>

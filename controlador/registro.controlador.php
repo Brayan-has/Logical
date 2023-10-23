@@ -1,13 +1,11 @@
 <?php
-/*
 
-*/
 
 //validar si se ha presionado el boton de REGISTRAR
 if (!empty($_POST["registro"])) {
     if (empty($_POST['nombre']) or empty($_POST['apellido']) or empty($_POST['nacimiento']) or empty($_POST['cedula']) or empty($_POST['telefono']) or empty($_POST['correo']) or empty($_POST['contrasena']) or empty($_POST['cargo'])) {
         ?>
-            
+
         <script>
             Swal.fire({
                 icon: 'error',
@@ -16,7 +14,7 @@ if (!empty($_POST["registro"])) {
                 footer: ''
             })
         </script>
-     
+
 
         <?php
     } else {
@@ -33,6 +31,8 @@ if (!empty($_POST["registro"])) {
         $cargo = $_POST['cargo'];
         //tabla de horario
 
+
+
         //sentencia para registrar el usuario
         $sql = $conexion->query("INSERT INTO empleado (nombre,apellido,fecha_nacimiento,cedula,telefono,correo,contrasena,cargo) 
       VALUES ( '$nombre','$apellido','$nacimiento',$cedula,$telefono,'$correo','$contrasena','$cargo')");
@@ -41,27 +41,28 @@ if (!empty($_POST["registro"])) {
 
             <script>
                 Swal.fire(
-                    '¡USUARIO REGISTRADO CORRECTAMENTE! :)',
+                    '¡Presiona siguiente para continuar con el proceso! :)',
                     '',
                     'success'
                 )
             </script>
 
-        <?php } else {?>
-           
+
+        <?php } else { ?>
 
 
-           <script>
-            Swal.fire({
-                icon: 'error',
-                title: '',
-                text: 'PROCESO FALLIDO :(',
-                footer: ''
-            })
-        </script>
+
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '',
+                    text: 'PROCESO FALLIDO :(',
+                    footer: ''
+                })
+            </script>
         <?php }
 
-        // $sql = $conexion->query("INSERT INTO cargo (cargo) VALUES ($cargo);");
+
 
     }
 
