@@ -1,7 +1,5 @@
 <?php
-/*
 
-*/
 
 //validar si se ha presionado el boton de REGISTRAR
 if (!empty($_POST["registro"])) {

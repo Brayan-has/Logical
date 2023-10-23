@@ -2,6 +2,8 @@
 
 include("../../modelo/conexion_bd.php");
 
+//en caso de que se presione el input enviar y este no esté vacio se validará si cada campo
+//no está vacio y si ese es el caso envíar un mensaje de error 
 
 if (!empty($_POST["enviar"])){
     
@@ -17,11 +19,7 @@ if (!empty($_POST["enviar"])){
         
         $sql = $conexion->query("UPDATE SET nombre='$nombreUsuario', apellido='$apellidoUsuario', cedula='$cedulaUsuario','$fechaUsuario','$correoUsuario','$telefonoUsuario' WHERE id_empleado = $id" );
 
-        // if ($sql->fetch_object()->) {
-        //     # code...
-        // } else {
-        //     # code...
-        // }
+       
         
 
     }else{

@@ -1,6 +1,12 @@
 <?php
-//código para registrar usuario por medio de correo electronico
 
+
+//intenté aplicar esto pero no me dio tiempo con las demás funciones 
+
+
+
+
+//código para registrar usuario por medio de correo electronico
 // Varios destinatarios
 $para  = 'g.nayarb112@gmail.com' . ', '; // atención a la coma
 // $para .= 'wez@example.com';

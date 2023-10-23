@@ -1,7 +1,7 @@
 <?php
 
 
-
+//valido he intento obtener los datos por metodo post para insertar datos relevantes para el registro de tareas
 if(!empty($_POST['confirmar'])){
 
 $confirmar_id = $_POST['confirmar-id'];

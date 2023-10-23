@@ -1,13 +1,13 @@
 <?php
 
-
+//conexión a la base de datos básico por medio de la clase mysqli
 $SERVERNAME= "localhost";
 $USERNAME= "root";
 $PASSWORD="";
 $DBNAME="logical";
 $PORT ="3306";
 //creacion de la connection
-
+// intento la conexión en caso de fallar evitar que la app creachee
  try
 {
     $conexion = new mysqli($SERVERNAME,$USERNAME,$PASSWORD,$DBNAME,$PORT);

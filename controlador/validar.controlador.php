@@ -4,7 +4,7 @@
 session_start();
 
 
-// 
+// por medio de este controlador obtendré acceso a la base de datos
 
 include("../modelo/conexion_bd.php");
 
@@ -27,7 +27,12 @@ if (!empty($_POST["ingresar"])) {
         </script>
         <?php
     } else {
+
+        // valido si los datos ingresados en el logín coinciden con los datos en la base de datos
+        // en caso de coincidir se redirigirá hacía su respectiva vista
         $usuario = $_POST['usuario'];
+
+        // capturo la contraseña ingresada en el login y la encripto 
         $contrasena = md5($_POST['contrasena']);
         //
         $sql = $conexion->query("SELECT * FROM empleado,asistencia,salario WHERE correo = '$usuario' AND contrasena = '$contrasena'");
@@ -51,7 +56,7 @@ if (!empty($_POST["ingresar"])) {
 
 
 
-            //de inicio
+            //en caso de ser el usuario quien ingresa supervisor o administrador tendrán una vista diferente de los demás usuarios
             if ($datos->cargo == "Supervisor" || $datos->cargo == "Administrador" || $datos->cargo == "Supervisora" || $datos->cargo == "Administradora") {
 
                 header("location: ../vista/inicio");
