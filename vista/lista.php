@@ -124,7 +124,7 @@
                 <?php
 
               
-                
+                if($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador"){
                 while ($datos = $sql->fetch_object()) { ?>
                     <tr>
                         <td>
@@ -156,8 +156,13 @@
                     </tr>
 
                 <?php }
-                ?>
+                }else{
 
+
+                    
+                }
+                ?>
+                
             </tbody>
         </table>
     </div>
