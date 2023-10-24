@@ -60,31 +60,38 @@
     
     </p>
   </div>
+  <!--generaremos un planteamiento del problema  -->
  <div>
     <h3>Plantiamiento del problema</h3>
-    <p>agregaremos al usuario a una base de datos para todo tipo de organizacion y solucion del problema
-      pudiendo llevar eficazmente para identificar, reaccionar y responder a los problemas todo tipo de soluciones y planteamiento de ellos. <br>
-      otro punto es que el planteamineto del problema es la parte de una tesis, trabajo o proyecto de investigación en la cual se expone el asunto o cuestión que se tiene como objeto aclarar.
+    <p>
+        En la actualidad toda empresa debe contar con un ambiente unico que les permita a los empleados de cada una de nuestras empresas que se identifiquen con ella, de tal forma que se puedan lograr los objetivos de acuerdo con las necesidades, De esta forma las organizaciones hoy en dia vienen hacer una fusion entre las estructuras de planteaminetos de problemas y un incremento de la participación laboral  en las economías desarrolladas que el incremento en la inflación y la finalización de los programas de apoyo podrían propiciar; una relajación de la politica y una digitalización de los procesos de comercio exterior en todo el mundo. Este planteamiento del problema es crucial para poder diseñar estrategias y soluciones que permitan mejorar la logística y optimizar el flujo de productos y servicios en la empresa.
     </p> <br>
 
+
+    <h4>Ejemplos de planteamiento de problemas</h4>
     <ul>
-      <li>agregar al usuario una base de datos para la organizacion</li>
-      <li>organizar tareas a empleados salarios y horarios permanentes</li>
-      <li>actualizar datos de los usuarios</li>
+      <li> La empresa enfrenta dificultades para mantener el equilibrio adecuado entre la demanda de los productos Esto resulta en pérdidas económicas debido a la obsolescencia de productos o a la falta de stock para satisfacer la demanda. </li><br>
+      <li>organizar tareas a empleados salarios y horarios permanentes</li><br>
+      <li> Los costos asociados al transporte de mercancías son excesivamente altos y afectan negativamente la rentabilidad del negocio. Esto puede deberse a la falta de negociación con proveedores de transporte o uso inadecuado de recursos.</li> <br>
       <li>informar a los usuarios y empleados de toda novedad</li>
+      <li>demoras en la toma de decisiones y falta de coordinación entre los diferentes lideres de la empresa.</li>
+
     </ul>
 
   </div>
 
   <div>
     <h3>Solucion a los problemas</h3>
-    <p>Logical se toma el tiempo de poder solucionar nuestros problemas acudiendo a las mejores soluciones como aumentar la competitivilidad y rentabilidad de la empresa, reduciendo los costos y mantenerlos equilibrados,mejorando la optimizacion de las rutas para mejorar el nivel del servicio estableciendo relaciones estrategicas con los socios proveedores y empleados de la empresa.</p><br>
+    <p>Logical se toma el tiempo de poder solucionar nuestros problemas acudiendo a las mejores soluciones como aumentar la competitivilidad y rentabilidad de la empresa, reduciendo los costos y mantenerlos equilibrados,mejorando la optimizacion de las rutas para mejorar el nivel del servicio estableciendo relaciones estrategicas con los socios proveedores y empleados de la empresa. yt ademas poder mejorar la gestión de los inventario Esto implica optimizar los niveles de inventario para evitar escasez o exceso de existencias. Se pueden utilizar técnicas como el análisis de datos de los usuarios, Administradores y empleados  para clasificar los productos según su importancia y aplicar políticas de reordenamiento eficientes.
 
+</p><br>
+    <h4>Ejemplos de solucion a los problemas.</h4>
     <ul>
-      <li>agregaremos una interfaz para agregar un empleado o usuario</li>
-      <li>agregaremos una interfaz para Administradores y supervisores con todo tipo de formulario</li>
-      <li>consolidar las entregas de carga entrante </li>
-      <li>mejoramiento de salarios</li>
+      <li> modificar la reorganización del diseño del almacénes, y todo tipo de empresas para garantizar la implementación de tecnología de automatización o la capacitación del personal(empleados) en técnicas de desempeño laboral a todas nuestras empresas.</li><br>
+      <li>garantizar una interfaz para un empleado o usuario</li><br>
+      <li>agregaremos una interfaz para Administradores y supervisores con todo tipo de formulario</li><br>
+      <li>consolidar las entregas de carga entrante </li><br>
+      <li>mejoramiento de salarios</li><br>
     </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
