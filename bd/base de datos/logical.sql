@@ -24,12 +24,12 @@ CREATE TABLE cargo(
     );
         
 	/*Se crea tabla horario conexión uno a uno con la tabla de empleado*/
-CREATE TABLE horario(
-	id_horario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    horario_semana VARCHAR(20),
-    CONSTRAINT fk_horario FOREIGN KEY(id_horario) REFERENCES empleado(id_empleado)
-    ON DELETE CASCADE
-    );
+-- CREATE TABLE horario(
+-- 	id_horario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     horario_semana VARCHAR(20),
+--     CONSTRAINT fk_horario FOREIGN KEY(id_horario) REFERENCES empleado(id_empleado)
+--     ON DELETE CASCADE
+--     );
     
 CREATE TABLE asistencia(
 	id_asistencia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

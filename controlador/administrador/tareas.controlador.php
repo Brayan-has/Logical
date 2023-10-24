@@ -1,10 +1,10 @@
 <?php
 
 //validar si se ha presionado el boton de REGISTRAR
-if (!empty($_POST["tarea"])){
+if (!empty($_POST["tarea"])) {
 
 
-    if (empty($_POST["id_empleado"]) or empty($_POST["empresa"]) or empty($_POST["entrada"]) or empty($_POST["salida"]) or empty($_POST["jornada"]) or empty($_POST["area"])){
+    if (empty($_POST["id_empleado"]) or empty($_POST["empresa"]) or empty($_POST["entrada"]) or empty($_POST["salida"]) or empty($_POST["jornada"]) or empty($_POST["area"])) {
         ?>
 
         <!-- sweet alert para una interfaz de alerta visualmente amigable -->
@@ -18,7 +18,7 @@ if (!empty($_POST["tarea"])){
             })
         </script>
         <?php
-    }  else {
+    } else {
 
         //capturamos cada dato del usuario
 
@@ -34,6 +34,9 @@ if (!empty($_POST["tarea"])){
         //se insertan los datos capturados a la tablas asistencia
         $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada')");
 
+        // 
+        $sql_cargo = $conexion->query("INSERT INTO cargo (id_cargo,cargo) VALUES ($id_empleado,'$cargos'");
+
 
         //en caso de devolver un valor verdadero 
         //mostrar un sweet alert de registro correcto de tarea, mostrar que no fue posible en caso contrario
@@ -48,16 +51,16 @@ if (!empty($_POST["tarea"])){
                 )
             </script>
 
-        <?php } else {?>
-           
-           <script>
-           Swal.fire({
-               icon: 'error',
-               title: '',
-               text: 'NO SE PUDO REGISTRAR LA TAREA',
-               footer: ''
-           })
-       </script>
+        <?php } else { ?>
+
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '',
+                    text: 'NO SE PUDO REGISTRAR LA TAREA',
+                    footer: ''
+                })
+            </script>
 
         <?php }
 

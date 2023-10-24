@@ -98,7 +98,7 @@
     // include_once("../modelo/conexion_bd.php");
     include_once("../controlador/eliminar.controlador.php");
 
-    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida,
+    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida, asistencia.jornada,
     empleado.id_empleado,empleado.nombre,empleado.apellido,empleado.cedula,cargo.id_cargo,cargo.cargo
     FROM asistencia
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
@@ -125,9 +125,9 @@
                 <?php
 
 
-                if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
+                if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {if($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador"){
                     while ($datos = $sql->fetch_object()) { ?>
-                        <tr>
+                    
                             <td>
                                 <?= $datos->id_empleado ?>
                             </td>
@@ -147,7 +147,7 @@
                                 <?= $datos->hora_salida ?>
                             </td>
                             <td>
-                                <?= $_SESSION['jornada'] ?>
+                                <?= $datos->jornada  ?>
                             </td>
                             <td>
                                 <?= $_SESSION['area'] ?>
@@ -180,7 +180,7 @@
                                 <?= $datos->hora_salida ?>
                             </td>
                             <td>
-                                <?= $_SESSION['jornada'] ?>
+                                <?= $datos->jornada?>
                             </td>
                             <td>
                                 <?= $_SESSION['area'] ?>
@@ -188,8 +188,13 @@
                         </tr>
 
                 <?php }
-                ?>
+                }
 
+
+                    
+                
+                ?>
+                
             </tbody>
         </table>
     </div>
