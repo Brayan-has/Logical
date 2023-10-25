@@ -90,7 +90,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
+                
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Cargo</th>
@@ -101,9 +101,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row">
-                        <?= $_SESSION['id'] ?>
-                    </td>
+                  
                     <td>
                         <?= $_SESSION['nombre'] ?>
                     </td>
@@ -114,7 +112,7 @@
                         <?= $_SESSION['cargo'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['salario'] ?>
+                        <?= $_SESSION['salario']; echo "$" ?>
                     </td>
                     <td>
                         <?= $_SESSION['horas_cantidad'] ?>
@@ -129,12 +127,19 @@
         </table>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+ 
+
+    <div class="">
+
+    
 
 
+    </div>
 
 </body>
-
+<footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</footer>
 </html>

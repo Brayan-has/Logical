@@ -51,10 +51,10 @@
 
   <div class="contenedor">
 
-    <h1>¡Bienvenidos a logical!</h1>
+    <h1> ¡Bienvenidos a logical!</h1>
   </div>
   <div>
-    <h1>Logical</h1>
+    <h1> Logical</h1>
     <p>Logical una plataforma de logistica, la cual fue creada para la solucion de problemas y llevar un orden a decuado para cada una de las empresa que desee adquirir este servicio de alquiler, presentamos ante ustedes algo seguro y eficiente para cada una de sus suluciones
     les brindamos la mejor confianza de nuestra plataforma logical mas conocida como plantiamiento logistico. Hoy en dia son demasiadas empresas a nivel mundial he internacional que de sea una base de datos confiable y que sea de buen uso a su labor empresarial para sus empleados y no solo ellos para sus usuarios o clientes finales, por esto les estamos brindando esta plataforma logical segura para todo tipo de bases de datos, donde llevaras el orden de entra orden de salida, salarios, y horas extras de los empleados.
     

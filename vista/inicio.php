@@ -81,15 +81,15 @@
     ?>
 
 
-    <h1 id="ingreso">BIENVENIDO A LOGICAL</h1>
+    <h1 class="ingreso">BIENVENIDO A LOGICAL</h1>
 
-    <div class="sidebar">
+
 
         <!-- FOTO -->
-        <div id="lateral">
+        <!-- <div id="lateral">
 
-            <p>USUARIO</p>
-        </div>
+      
+        </div> -->
         <div class="cargo">
             <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
         </div>
@@ -105,11 +105,8 @@
                 <?= $_SESSION['cargo'] ?>
             </div>
         </div>
-    </div>
 
-    <div class="user">
-       
-    </div>
+
 
 
 

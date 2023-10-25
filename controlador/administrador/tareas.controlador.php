@@ -27,12 +27,13 @@ if (!empty($_POST["tarea"])) {
         $hora_entrada = $_POST["entrada"];
         $hora_salida = $_POST["salida"];
         $jornada = $_POST["jornada"];
-        $_SESSION['J'] = $jornada;
+        // $_SESSION['J'] = $jornada;
         $cargos = $_SESSION['cargo'];
+        $area = $_SESSION['area'];
 
 
         //se insertan los datos capturados a la tablas asistencia
-        $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada')");
+        $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada,area) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada','$area');");
 
         // 
         $sql_cargo = $conexion->query("INSERT INTO cargo (id_cargo,cargo) VALUES ($id_empleado,'$cargos'");

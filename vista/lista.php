@@ -81,7 +81,7 @@
 
 
     <div class="titulo">
-        <H3>INDICA LAS TAREAS DE LA SEMANA</H3>
+        <H3>TAREAS DE LA SEMANA</H3>
     </div>
 
     <!-- capturar datos session -->
@@ -98,7 +98,7 @@
     // include_once("../modelo/conexion_bd.php");
     include_once("../controlador/eliminar.controlador.php");
 
-    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida, asistencia.jornada,
+    $sql = $conexion->query("SELECT DISTINCT asistencia.id_asistencia,asistencia.id_empleado,asistencia.empresa,asistencia.hora_entrada,asistencia.hora_salida, asistencia.jornada,asistencia.area,
     empleado.id_empleado,empleado.nombre,empleado.apellido,empleado.cedula,cargo.id_cargo,cargo.cargo
     FROM asistencia
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
@@ -107,7 +107,13 @@
         ?>
 
     <!-- INICIO TABLAS  -->
-    <div class="tablas">
+    <div class="container">
+
+
+
+
+
+
         <table class="table">
             <thead>
                 <tr>
@@ -125,9 +131,10 @@
                 <?php
 
 
-                if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {if($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador"){
-                    while ($datos = $sql->fetch_object()) { ?>
-                    
+               
+                    if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
+                        while ($datos = $sql->fetch_object()) { ?>
+
                             <td>
                                 <?= $datos->id_empleado ?>
                             </td>
@@ -147,19 +154,40 @@
                                 <?= $datos->hora_salida ?>
                             </td>
                             <td>
-                                <?= $datos->jornada  ?>
+                                <?= $datos->jornada ?>
                             </td>
                             <td>
-                                <?= $_SESSION['area'] ?>
+                                <?= $datos->area ?>
 
                                 <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
                                     class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
                             </td>
-                        </tr>
+                            </tr>
 
-                    <?php }
-                } else 
-                    while ($datos = $sql->fetch_object()) {?> 
+                        <?php }
+                    } else ?>
+
+                    <div>
+                        <h3>Busca tus tareas de la semana</h3>
+
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre del empleado</label>
+                                <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Ejemplo: Andres123@gmail.com">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+
+                    <?php
+
+
+                    while ($datos = $sql->fetch_object()) { ?>
+
+
                         <tr>
                             <td>
                                 <?= $datos->id_empleado ?>
@@ -180,21 +208,21 @@
                                 <?= $datos->hora_salida ?>
                             </td>
                             <td>
-                                <?= $datos->jornada?>
+                                <?= $datos->jornada ?>
                             </td>
                             <td>
-                                <?= $_SESSION['area'] ?>
+                                <?= $datos->area ?>
                             </td>
                         </tr>
 
-                <?php }
-                }
-
-
-                    
+                    <?php }
                 
+
+
+
+
                 ?>
-                
+
             </tbody>
         </table>
     </div>

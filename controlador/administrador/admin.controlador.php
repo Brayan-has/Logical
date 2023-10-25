@@ -43,7 +43,7 @@ $html = '';
 
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
-        echo "<div class='centro'>";
+        
         $html .= '<tr>';
         $html .= '<td>'.$row['id_empleado'].'</td>';
         $html .= '<td>'.$row['nombre'].'</td>';
@@ -52,7 +52,7 @@ if ($num_rows > 0) {
         $html .= '<td>'.$row['correo'].'</td>';
         $html .= '<td>'.$row['cargo'].'</td>';
         $html .= '</tr>';
-        echo "</div>";
+      
     }
 } else {
 

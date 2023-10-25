@@ -69,83 +69,65 @@
 
     <h4>Actualizar datos</h4>
 
-    <?php include_once "../../controlador/administrador/actualizar.controlador.php";?>
+    <?php include_once "../../controlador/administrador/actualizar.controlador.php"; ?>
 
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nombre</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="nombre-usuario" aria-describedby="emailHelp"
-                placeholder="Enter email" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Apellido</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="apellido-usuario" placeholder="ejemplo:" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Cedula</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="cedula-usuario" aria-describedby="emailHelp"
-                placeholder="Enter email" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Fecha de nacimiento</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="fecha-nacimiento" placeholder="ejemplo:" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Correo</label>
-            <input type="text" class="form-control" id="exampleInputEmail1"  name="correo-usuario" aria-describedby="emailHelp"
-                placeholder="Enter email" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Cargo</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="cargo-usuario" placeholder="ejemplo:" value="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Teléfono</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="telefono-usuario" aria-describedby="emailHelp"
-                placeholder="Enter email" value="" >
-        </div>
-       
-        <input type="submit" class="btn btn-primary" name="enviar" value="Actualizar">Actualizar</input>
 
-    </form>
-  
 
-    <div class="formularioUno">
+
+
+
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="guarda.php" method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-3"></div>
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" required>
+                        </form>
+
+                        
+                        <div class="mb-3"></div>
+                            <label for="descripcion" class="form-label">Nombre</label>
+                            <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required>
+                        </form>
+
+                        
+                        <div class="mb-3"></div>
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <select type="text" name="nombre" id="nombre" class="form-select" required>
+                                <option value="">Seleccionar...</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <h4>Eliminar Usuario</h4>
 
 
-    <div class="formulario1">
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ejemplo:">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-            </div>
-          
-            <input type="submit" class="btn btn-primary">Eliminar</input>
-        </form>
-    </div>
-
-    <div class="contenido">
-
-
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-            </script>
 </body>
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+</footer>
 
 </html>
