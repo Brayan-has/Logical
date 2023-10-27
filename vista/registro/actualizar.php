@@ -75,132 +75,139 @@
 
     <div class="padre">
 
-<div class="container-fluid">
-    <h1>Buscar usuarios</h1>
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nombre del empleado</label>
-            <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                placeholder="Ejemplo: Andres123@gmail.com">
+        <div class="container-fluid">
+            <h1>Buscar usuarios</h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre del empleado</label>
+                    <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
+                        placeholder="Ejemplo: Andres123@gmail.com">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+        <div class="container mt-4" id="ca">
 
-<div class="container mt-4">
+            <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
+                <thead>
+                    <th scope="row" scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">apellido</th>
+                    <th scope="col">cedula</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">cargo</th>
+                </thead>
 
-    <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
-        <thead>
-            <th scope="row" scope="col">id</th>
-            <th scope="col">nombre</th>
-            <th scope="col">apellido</th>
-            <th scope="col">cedula</th>
-            <th scope="col">correo</th>
-            <th scope="col">cargo</th>
-        </thead>
+                <tbody id="content">
 
-        <tbody id="content">
+                    <?php
+
+                    include_once "../../controlador/administrador/admin.controlador.php"
+                    ?>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+        <div class="container mt-4" id="scroll">
+
+
+            <h4>Editar</h4>
 
             <?php
+                ?>
+                <form action="" method="POST">
+                    <div class="form-group">
 
-            include_once "../../controlador/administrador/admin.controlador.php"
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="id del empleado"
+                            name="id-usuario">
+
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="nombre"
+                            name="nombre-usuario">
+
+                    </div>
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="apellido"
+                                name="apellido-usuario">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cedula"
+                                name="cedula-usuario">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="fecha"
+                                name="fecha-nacimiento">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="correo"
+                                name="correo-usuario">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="telefono"
+                                name="telefono-usuario">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cargo"
+                                name="cargo-usuario">
+                        </div>
+
+
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" name="actualizar">Actualizar</input>
+                </form>
+                <?php
+            
             ?>
 
-        </tbody>
+        </div>
+        <!-- actualizar datos -->
 
-    </table>
+        <!-- agregar usuario nuevo -->
+        <div class="container mt-4">
 
+            <h4>Actualizar salario de empleado</h4>
 
-</div>
+            <form action="" method="POST">
 
-    <div class="container mt-4">
-
-        <h4>Actualizar</h4>
-
-        <?php
-        if (isset($_POST["actualizar"])) {
-            // entra cuando se presiona el botón
-        } else {
-            // aquí si no se presiona el botón  
-        
-            ?>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                <div class="form-group">
-
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="nombre" name="nombre">
-
-                </div>
                 <div class="form-group">
 
                     <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="apellido"
-                            name="apellido">
+                        <!-- id del empleado / id_salario -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="id del usuario ejemplo: 4" name="id">
                     </div>
                     <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cedula"
-                            name="cedula">
+                        <!-- horas_cantidad -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Cantidad hora extra ejemplo: 3" name="cantidad">
                     </div>
                     <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="fecha" name="fecha">
+                        <!-- horas_valor -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Valor de hora ejemplo: 3600.000" name="valor">
                     </div>
                     <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="correo"
-                            name="correo">
+                        <!-- salario del empleado -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Salario ejemplo: 1160.000" name="salario">
                     </div>
-                    <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="telefono"
-                            name="telefono">
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cargo" name="cargo">
-                    </div>
-
-                   
                 </div>
 
-                <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
+                <input type="submit" class="btn btn-primary" name="salario_boton">Registrar salario</input>
             </form>
-            <?php
-        }
-        ?>
 
-    </div>
-    <!-- actualizar datos -->
-
-    <!-- agregar usuario nuevo -->
-    <div class="container mt-4">
-
-        <h4>Actualizar salario de empleado</h4>
-
-        <form action="" method="POST">
-          
-            <div class="form-group">
-                
-                <div>
-                    <!-- id del empleado / id_salario -->
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="id del usuario ejemplo: 4" name="id">
-                </div>
-                <div>
-                    <!-- horas_cantidad -->
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cantidad hora extra ejemplo: 3"
-                        name="cantidad">
-                </div>
-                <div>
-                    <!-- horas_valor -->    
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Valor de hora ejemplo: 3600.000"
-                        name="valor">
-                </div>
-                <div>
-                    <!-- salario del empleado -->
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Salario ejemplo: 1160.000" name="salario">
-                </div>
-            </div>
-
-            <input type="submit" class="btn btn-primary" name="salario_boton">Registrar salario</input>
-        </form>
-
-    </div>
+        </div>
 
 
 

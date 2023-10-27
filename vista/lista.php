@@ -107,7 +107,7 @@
         ?>
 
     <!-- INICIO TABLAS  -->
-    <div class="container mt-4" id="contenedor">
+    <div class="container mt-4" id="contenedor" class="ca">
 
 
 
@@ -131,62 +131,73 @@
                 <?php
 
 
-               
-                    if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
-                        while ($datos = $sql->fetch_object()) { ?>
 
-                            <td>
-                                <?= $datos->id_empleado ?>
-                            </td>
-                            <td>
-                                <?= $datos->nombre ?>
-                            </td>
-                            <td>
-                                <?= $datos->cedula ?>
-                            </td>
-                            <td>
-                                <?= $datos->cargo ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_entrada ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_salida ?>
-                            </td>
-                            <td>
-                                <?= $datos->jornada ?>
-                            </td>
-                            <td>
-                                <?= $datos->area ?>
+                if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
+                    while ($datos = $sql->fetch_object()) { ?>
 
-                                <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
-                                    class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
-                            </td>   
-                            </tr>
+                        <td>
+                            <?= $datos->id_empleado ?>
+                        </td>
+                        <td>
+                            <?= $datos->nombre ?>
+                        </td>
+                        <td>
+                            <?= $datos->cedula ?>
+                        </td>
+                        <td>
+                            <?= $datos->cargo ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_entrada ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_salida ?>
+                        </td>
+                        <td>
+                            <?= $datos->jornada ?>
+                        </td>
+                        <td>
+                            <?= $datos->area ?>
+                        </td>
+                        <td><a href="../vista/registro/actualizar?id=<? $datos->id_empleado ?>"><i
+                                    class="fa-sharp fa-solid fa-money-check-pen"></i>Editar</a></td>
+                        <td>
+                            <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
+                                class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                        </td>
+                        </tr>
 
-                        <?php }
-                    } else ?>
+                    <?php }
+                } else ?>
 
-                    <div>
-                      
-                        <h3>Busca tus tareas de la semana</h3>
+                <div>
 
-                        <form action="" method="POST">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre del empleado</label>
-                                <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Ejemplo: Andres123@gmail.com">
-                            </div>
+                    <h3>Busca tus tareas de la semana</h3>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre del empleado</label>
+                            <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
+                                placeholder="Ejemplo: Andres123@gmail.com">
+                        </div>
 
-                    </div>
+                        <button type="submit" class="btn btn-primary" name="busqueda">Submit</button>
+                    </form>
 
-                    <?php
+                </div>
+
+                <?php
+
+                // if (isset($_POST["busqueda"])) {
+                //     $busqueda = $_POST["buscar"];
+                //     $sql = $conexion->query("SELECT * FROM empleado,asistencia where correo LIKE '%$busqueda%'");
 
 
-                    while ($datos = $sql->fetch_object()){ ?>
+
+                
+                // }
+                    while ($datos = $sql->fetch_object()) { ?>
+
 
 
                         <tr>
@@ -217,8 +228,8 @@
                         </tr>
 
                     <?php }
-                
 
+                
 
 
 

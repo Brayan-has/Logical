@@ -52,9 +52,9 @@
                         <li></li>
                         <li></li>
                         <?php
+                        session_start();
 
                         include("../controlador/validar.controlador.php");
-                        session_start();
 
 
 
@@ -81,14 +81,10 @@
         </div>
 
     </nav>
-
-
-    <?php
-
-    ?>
     <!-- FINAL DE NAVBAR -->
-    
+
     <div class="container mt-4">
+
         <!--data table  -->
         <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
             <thead>
@@ -102,7 +98,7 @@
                     <th scope="col">valor hora</th>
                 </tr>
             </thead>
-            <tbody> 
+            <tbody>
                 <tr>
 
                     <td>
@@ -126,17 +122,17 @@
                     </td>
 
                 </tr>
-                
+
 
             </tbody>
-                
+
         </table>
         <!-- end data table -->
 
     </div>
 
 
-                        
+
 
 </body>
 <footer>

@@ -1,5 +1,5 @@
 <?php
-
+// include_once("../../modelo/conexion_bd.php");
 //validar si se ha presionado el boton de REGISTRAR
 if (!empty($_POST["tarea"])) {
 

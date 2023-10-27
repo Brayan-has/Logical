@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 //accedo a la base de datos 
 include_once "../../modelo/conexion_bd.php";
 

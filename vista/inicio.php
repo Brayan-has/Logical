@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <?php include("../controlador/validar.controlador.php");?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -75,7 +76,7 @@
 
 
     <?php
-    session_start();
+    // session_start();
     if (empty($_SESSION["nombre"]) and empty($_SESSION["apellido"])) {
         header("location: ../vista/login");
     }
