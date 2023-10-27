@@ -54,7 +54,7 @@
     <h1>¡Bienvenidos a logical!</h1>
   </div>
   <div>
-    <h1>Logical</h1>
+    <h1><u>Logical</u></h1>
     <p>Logical una plataforma de logistica, la cual fue creada para la solucion de problemas y llevar un orden a decuado para cada una de las empresa que desee adquirir este servicio de alquiler, presentamos ante ustedes algo seguro y eficiente para cada una de sus suluciones
     les brindamos la mejor confianza de nuestra plataforma logical mas conocida como plantiamiento logistico. Hoy en dia son demasiadas empresas a nivel mundial he internacional que de sea una base de datos confiable y que sea de buen uso a su labor empresarial para sus empleados y no solo ellos para sus usuarios o clientes finales, por esto les estamos brindando esta plataforma logical segura para todo tipo de bases de datos, donde llevaras el orden de entra orden de salida, salarios, y horas extras de los empleados.
     
@@ -62,13 +62,13 @@
   </div>
   <!--generaremos un planteamiento del problema  -->
  <div>
-    <h3>Plantiamiento del problema</h3>
+    <h3><u>Plantiamiento del problema</u></h3>
     <p>
         En la actualidad toda empresa debe contar con un ambiente unico que les permita a los empleados de cada una de nuestras empresas que se identifiquen con ella, de tal forma que se puedan lograr los objetivos de acuerdo con las necesidades, De esta forma las organizaciones hoy en dia vienen hacer una fusion entre las estructuras de planteaminetos de problemas y un incremento de la participación laboral  en las economías desarrolladas que el incremento en la inflación y la finalización de los programas de apoyo podrían propiciar; una relajación de la politica y una digitalización de los procesos de comercio exterior en todo el mundo. Este planteamiento del problema es crucial para poder diseñar estrategias y soluciones que permitan mejorar la logística y optimizar el flujo de productos y servicios en la empresa.
     </p> <br>
 
 
-    <h4>Ejemplos de planteamiento de problemas</h4>
+    <h4><u>Ejemplos de planteamiento de problemas</u></h4>
     <ul>
       <li> La empresa enfrenta dificultades para mantener el equilibrio adecuado entre la demanda de los productos Esto resulta en pérdidas económicas debido a la obsolescencia de productos o a la falta de stock para satisfacer la demanda. </li><br>
       <li>organizar tareas a empleados salarios y horarios permanentes</li><br>
@@ -81,11 +81,11 @@
   </div>
 
   <div>
-    <h3>Solucion a los problemas</h3>
+    <h3><u>Solucion a los problemas</u></h3>
     <p>Logical se toma el tiempo de poder solucionar nuestros problemas acudiendo a las mejores soluciones como aumentar la competitivilidad y rentabilidad de la empresa, reduciendo los costos y mantenerlos equilibrados,mejorando la optimizacion de las rutas para mejorar el nivel del servicio estableciendo relaciones estrategicas con los socios proveedores y empleados de la empresa. yt ademas poder mejorar la gestión de los inventario Esto implica optimizar los niveles de inventario para evitar escasez o exceso de existencias. Se pueden utilizar técnicas como el análisis de datos de los usuarios, Administradores y empleados  para clasificar los productos según su importancia y aplicar políticas de reordenamiento eficientes.
 
 </p><br>
-    <h4>Ejemplos de solucion a los problemas.</h4>
+    <h4><u>Ejemplos de solucion a los problemas.</u></h4>
     <ul>
       <li> modificar la reorganización del diseño del almacénes, y todo tipo de empresas para garantizar la implementación de tecnología de automatización o la capacitación del personal(empleados) en técnicas de desempeño laboral a todas nuestras empresas.</li><br>
       <li>garantizar una interfaz para un empleado o usuario</li><br>
