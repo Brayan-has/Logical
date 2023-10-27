@@ -41,7 +41,7 @@ if (!empty($_POST["registro"])) {
 
             <script>
                 Swal.fire(
-                    '¡Presiona siguiente para continuar con el proceso! :)',
+                    '¡USUARIO REGISTRADO CORRECTAMENTE! :)',
                     '',
                     'success'
                 )

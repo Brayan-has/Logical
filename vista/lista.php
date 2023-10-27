@@ -107,7 +107,7 @@
         ?>
 
     <!-- INICIO TABLAS  -->
-    <div class="container">
+    <div class="container mt-4" id="contenedor">
 
 
 
@@ -161,13 +161,14 @@
 
                                 <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
                                     class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-trash"></i></a>
-                            </td>
+                            </td>   
                             </tr>
 
                         <?php }
                     } else ?>
 
                     <div>
+                      
                         <h3>Busca tus tareas de la semana</h3>
 
                         <form action="" method="POST">
@@ -185,7 +186,7 @@
                     <?php
 
 
-                    while ($datos = $sql->fetch_object()) { ?>
+                    while ($datos = $sql->fetch_object()){ ?>
 
 
                         <tr>

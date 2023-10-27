@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../vista/css/lateral.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
 </head>
 
 <body>
@@ -54,8 +56,8 @@
                     <ul class="navbar-nav fs-5 justify-content-evenly">
                         <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">TAREA SEMANA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/salario" class="nav-link">SALARIO</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar"
-                                class="nav-link">ACTUALIZAR DATOS</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar" class="nav-link">ACTUALIZAR DATOS</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">EMPLEADOS</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador" class="nav-link"
                                 onclick="return salir()">SALIR</a></li>
                     </ul>
@@ -85,26 +87,26 @@
 
 
 
-        <!-- FOTO -->
-        <!-- <div id="lateral">
+    <!-- FOTO -->
+    <!-- <div id="lateral">
 
       
         </div> -->
+    <div class="cargo">
+        <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+    </div>
+
+    <!-- nombre y apellido -->
+
+
+
+
+    <div class="cargo-superior">
+
         <div class="cargo">
-            <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+            <?= $_SESSION['cargo'] ?>
         </div>
-
-        <!-- nombre y apellido -->
-
-
-
-
-        <div class="cargo-superior">
-
-            <div class="cargo">
-                <?= $_SESSION['cargo'] ?>
-            </div>
-        </div>
+    </div>
 
 
 
@@ -112,71 +114,7 @@
 
 
 
-    <div class="padre" >
-
-        <div class="container-fluid">
-            <h1>Buscar usuarios</h1>
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre del empleado</label>
-                    <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                        placeholder="Ejemplo: Andres123@gmail.com">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-
-        <div class="form-group">
-
-            <table class="table">
-                <thead>
-                    <th scope="row" scope="col">id</th>
-                    <th scope="col">nombre</th>
-                    <th scope="col">apellido</th>
-                    <th scope="col">cedula</th>
-                    <th scope="col">correo</th>
-                    <th scope="col">cargo</th>
-                </thead>
-
-                <tbody id="content">
-
-                    <?php
-
-                    include_once "../controlador/administrador/admin.controlador.php"
-                        ?>
-
-                </tbody>
-
-            </table>
-
-            <script>
-
-                getData()
-
-                function getData() {
-
-                    let input = document.getElementById("buscar").value
-                    let content = document.getElementById("content")
-                    let url = "http://localhost/Proyecto%20logical/Logical/vista/inicio";
-                    let formData = new FormData()
-                    formData.append('buscar', input)
-
-                    //generar petición
-                    fetch(url, {
-                        method: "POST",
-                        body: formData
-                    }).then(response => response.json())
-                        .then(data => {
-                            content.innerHTML = data
-                        }).catch(err => console.log(err))
-
-                }
-
-
-            </script>
-
-        </div>
+    <!--  -->
 
 
 
@@ -231,6 +169,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+    <script type="text/Javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script type="text/Javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/Javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </footer>
 
 </html>

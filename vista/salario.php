@@ -10,6 +10,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../vista/css/lateral.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
 </head>
 
 <body>
@@ -54,7 +57,7 @@
                         session_start();
 
 
-                       
+
 
 
 
@@ -84,13 +87,13 @@
 
     ?>
     <!-- FINAL DE NAVBAR -->
-
-    <div class="container">
-
-        <table class="table">
+    
+    <div class="container mt-4">
+        <!--data table  -->
+        <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
             <thead>
                 <tr>
-                
+
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Cargo</th>
@@ -99,9 +102,9 @@
                     <th scope="col">valor hora</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody> 
                 <tr>
-                  
+
                     <td>
                         <?= $_SESSION['nombre'] ?>
                     </td>
@@ -112,7 +115,8 @@
                         <?= $_SESSION['cargo'] ?>
                     </td>
                     <td>
-                        <?= $_SESSION['salario']; echo "$" ?>
+                        <?= $_SESSION['salario'];
+                        echo "$" ?>
                     </td>
                     <td>
                         <?= $_SESSION['horas_cantidad'] ?>
@@ -120,26 +124,31 @@
                     <td>
                         <?= $_SESSION['horas_valor'] ?>
                     </td>
-                    
+
                 </tr>
+                
 
             </tbody>
+                
         </table>
-    </div>
-
- 
-
-    <div class="">
-
-    
-
+        <!-- end data table -->
 
     </div>
+
+
+                        
 
 </body>
 <footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+    <script type="text/Javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script type="text/Javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/Javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </footer>
+
 </html>

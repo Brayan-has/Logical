@@ -67,57 +67,139 @@
 
     </div>
 
-    <h4>Actualizar datos</h4>
+
 
     <?php include_once "../../controlador/administrador/actualizar.controlador.php"; ?>
 
 
 
+    <div class="padre">
+
+<div class="container-fluid">
+    <h1>Buscar usuarios</h1>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nombre del empleado</label>
+            <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
+                placeholder="Ejemplo: Andres123@gmail.com">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="container mt-4">
+
+    <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
+        <thead>
+            <th scope="row" scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">apellido</th>
+            <th scope="col">cedula</th>
+            <th scope="col">correo</th>
+            <th scope="col">cargo</th>
+        </thead>
+
+        <tbody id="content">
+
+            <?php
+
+            include_once "../../controlador/administrador/admin.controlador.php"
+            ?>
+
+        </tbody>
+
+    </table>
 
 
+</div>
 
-    <div class="container">
+    <div class="container mt-4">
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar registro</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <h4>Actualizar</h4>
+
+        <?php
+        if (isset($_POST["actualizar"])) {
+            // entra cuando se presiona el botón
+        } else {
+            // aquí si no se presiona el botón  
+        
+            ?>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="nombre" name="nombre">
+
+                </div>
+                <div class="form-group">
+
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="apellido"
+                            name="apellido">
                     </div>
-                    <div class="modal-body">
-                        <form action="guarda.php" method="POST" enctype="multipart/form-data">
-
-                        <div class="mb-3"></div>
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required>
-                        </form>
-
-                        
-                        <div class="mb-3"></div>
-                            <label for="descripcion" class="form-label">Nombre</label>
-                            <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required>
-                        </form>
-
-                        
-                        <div class="mb-3"></div>
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <select type="text" name="nombre" id="nombre" class="form-select" required>
-                                <option value="">Seleccionar...</option>
-                            </select>
-                        </form>
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cedula"
+                            name="cedula">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="fecha" name="fecha">
                     </div>
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="correo"
+                            name="correo">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="telefono"
+                            name="telefono">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cargo" name="cargo">
+                    </div>
+
+                   
+                </div>
+
+                <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
+            </form>
+            <?php
+        }
+        ?>
+
+    </div>
+    <!-- actualizar datos -->
+
+    <!-- agregar usuario nuevo -->
+    <div class="container mt-4">
+
+        <h4>Actualizar salario de empleado</h4>
+
+        <form action="" method="POST">
+          
+            <div class="form-group">
+                
+                <div>
+                    <!-- id del empleado / id_salario -->
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="id del usuario ejemplo: 4" name="id">
+                </div>
+                <div>
+                    <!-- horas_cantidad -->
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cantidad hora extra ejemplo: 3"
+                        name="cantidad">
+                </div>
+                <div>
+                    <!-- horas_valor -->    
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Valor de hora ejemplo: 3600.000"
+                        name="valor">
+                </div>
+                <div>
+                    <!-- salario del empleado -->
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Salario ejemplo: 1160.000" name="salario">
                 </div>
             </div>
-        </div>
+
+            <input type="submit" class="btn btn-primary" name="salario_boton">Registrar salario</input>
+        </form>
+
     </div>
 
 
