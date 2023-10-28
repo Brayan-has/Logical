@@ -1,109 +1,7 @@
 <?php
 // accedp a la base de datos
 include("../../modelo/conexion_bd.php");
-
-// valido si le id que se envió por get existe
-// de no ser así redirigir hacía la lista de usuarios
-if (empty($_GET["id"])) {
-    header("location: ../../vista/lista");
-}
-$id_user = $_GET["id"];
-
-// creo la consulta para obtner los datos del usuario
-$sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo FROM empleado e
-INNER JOIN cargo c 
-on e.cargo = c.cargo
-WHERE id_empleado = $id_user");
-
-// enumero los datos de la tabla en la base de datos
-// y valido para que sus resultados solo sean de 1 en adelante
-// en caso de ser 0 redirigir hacía la lista.
-$result = mysqli_num_rows($sql);
-
-if ($result > 0) {
-    
-
-    while ($data = mysqli_fetch_array($sql)) {
-        $id = $data["id_empleado"];
-        $nombre = $data["nombre"];
-        $apellido = $data["apellido"];
-        $correo = $data["correo"];
-        $cedula = $data["cedula"];
-        $fecha_nacimiento = $data["fecha_nacimiento"];
-        $telefono = $data["telefono"];
-        $cargo = $data["cargo"];
-        $clave = $data["contrasena"];
-    }
-    
-} else {
-    header("location: ../../vista/lista");
-    
-}
-
 ?>
-
-<!-- validamos  -->
-<?php
-
-if (!empty($_POST)) {
-    
-    $alert = '';
-    
-    if ( empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) {
-        
-        
-        echo "chat";
-        echo  $alert = '<p class="msg_error">Todos los campos son obligatorios</p>';
-    } else {
-        
-        echo "hola mundo";
-        
-        $nombre = $_POST['nombreUsuario'];
-        $appellido = $_POST['apellidoUsuario'];
-        $cedula = $_POST['cedulaUsuario'];
-        $fechaNacimiento = $_POST['fechaNacimiento'];
-        $correo = $_POST['correoUsuario'];
-        $telefono = $_POST['telefonoUsuario'];
-        $cargo = $_POST['cargoUsuario'];
-        $clave = md5($_POST['claveUsuario']);
-
-        $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado != $id");
-
-
-        $result = mysqli_fetch_array($query_select);
-
-        if ($result > 0) {
-            $alert = '<p class="msg_error">El correo o el usuairo ya existe</p>';
-        } else {
-
-            if (empty($_POST['clave'])) {
-
-                $sql_update = mysqli_query($conexion, "UPDATE empleado
-                SET nombre = '$nombre',apellido = '$apellido', cedula = $cedula, fecha_nacimiento = $fechaNacimiento, correo = '$correo', telefono = $telefono, cargo = '$cargo' WHERE id_empleado = $id");
-            } else {
-
-                $sql_update = mysqli_query($conexion, "UPDATE empleado
-                SET nombre = '$nombre',apellido = '$apellido', cedula = $cedula, fecha_nacimiento = $fechaNacimiento, correo = '$correo', telefono = $telefono, cargo = '$cargo' contrasena = '$clave' WHERE id_empleado = $id");
-
-            }
-
-            // $query_insert = mysqli_query($conexion,"INSERT INTO empleado(nombre,apellido,cedula,fecha_nacimiento,correo,telefono,cargo) VALUES ('$nombre','$apellido',$cedula,$fechaNacimiento,'$correo',$telefono,'$cargo'");
-            if ($sql_update) {
-
-                $alert = '<p class="msg_error">usuario actualizado correctamente</p>';
-
-            } else {
-                $alert = '<p class="msg_error">Error al actualizar el usuario</p>';
-
-            }
-        }
-    }
-}else{
-
-    echo "adios";
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +15,9 @@ if (!empty($_POST)) {
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../vista/css/lateral.css">
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -168,6 +69,124 @@ if (!empty($_POST)) {
 
     </nav>
 
+    <?php
+
+
+    // valido si le id que se envió por get existe
+// de no ser así redirigir hacía la lista de usuarios
+    if (empty($_GET["id"])) {
+        header("location: ../../vista/lista");
+    }
+    $id_user = $_GET["id"];
+
+    // creo la consulta para obtner los datos del usuario
+    $sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo FROM empleado e
+INNER JOIN cargo c 
+on e.cargo = c.cargo
+WHERE id_empleado = $id_user");
+
+    // enumero los datos de la tabla en la base de datos
+// y valido para que sus resultados solo sean de 1 en adelante
+// en caso de ser 0 redirigir hacía la lista.
+    $result = mysqli_num_rows($sql);
+
+    if ($result > 0) {
+
+
+        while ($data = mysqli_fetch_array($sql)) {
+            $id = $data["id_empleado"];
+            $nombre = $data["nombre"];
+            $apellido = $data["apellido"];
+            $correo = $data["correo"];
+            $cedula = $data["cedula"];
+            $fecha_nacimiento = $data["fecha_nacimiento"];
+            $telefono = $data["telefono"];
+            $cargo = $data["cargo"];
+            $clave = $data["contrasena"];
+        }
+
+    } else {
+        header("location: ../../vista/lista");
+
+    }
+
+    ?>
+
+    <!-- validamos  -->
+    <?php
+
+    if (!empty($_POST)) {
+
+        $alert = '';
+
+        if (empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) { ?>
+
+
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '',
+                    text: 'Los campos no pueden estar vacios :(',
+                    footer: ''
+                })
+            </script>';
+        <?php } else {
+
+           
+
+            $nombre = $_POST['nombreUsuario'];
+            $appellido_usuario = $_POST['apellidoUsuario'];
+            $cedula = $_POST['cedulaUsuario'];
+            $nacimiento = $_POST['fechaNacimiento'];
+            $correo = $_POST['correoUsuario'];
+            $telefono = $_POST['telefonoUsuario'];
+            $cargo = $_POST['cargoUsuario'];
+            $clave = md5($_POST['claveUsuario']);
+
+            $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado != $id");
+
+
+            $result = mysqli_fetch_array($query_select);
+
+            if ($result > 0) {
+                $alert = '<p class="msg_error">El correo o el usuairo ya existe</p>';
+            } else {
+
+                if (empty($_POST['clave'])) {
+
+                    $sql_update = mysqli_query($conexion, "UPDATE empleado
+                SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' WHERE id_empleado = $id");
+                } else {
+
+                    $sql_update = mysqli_query($conexion, "UPDATE empleado
+                SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' contrasena = '$clave' WHERE id_empleado = $id");
+
+                }
+
+                // $query_insert = mysqli_query($conexion,"INSERT INTO empleado(nombre,apellido,cedula,fecha_nacimiento,correo,telefono,cargo) VALUES ('$nombre','$apellido',$cedula,$fechaNacimiento,'$correo',$telefono,'$cargo'");
+                if ($sql_update) {
+                    ?>
+
+                    <script>
+                        Swal.fire(
+                            '¡Usuario editado correctamente! :)',
+                            '',
+                            'success'
+                        )
+                    </script>
+                    <?php
+                } else {
+                    $alert = '<p class="msg_error">Error al actualizar el usuario</p>';
+
+                }
+            }
+        }
+    } else {
+
+        
+    }
+    ?>
+
 
 
 
@@ -190,7 +209,7 @@ if (!empty($_POST)) {
 
             </div>
             <div class="form-group">
-
+                <label for="nombreUsuario">Nombre completo</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="nombre"
                     name="nombreUsuario" value="<?= $nombre ?>">
 
@@ -198,30 +217,37 @@ if (!empty($_POST)) {
             <div class="form-group">
 
                 <div>
+                    <label for="apellidoUsuario">Apellido completo</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="apellido"
                         name="apellidoUsuario" value="<?= $apellido ?>">
                 </div>
                 <div>
+                    <label for="cedulaUsuario">Cedula de ciudadania</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cedula"
                         name="cedulaUsuario" value="<?= $cedula ?>">
                 </div>
                 <div>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="fecha"
                         name="fechaNacimiento" value="<?= $fecha_nacimiento ?>">
                 </div>
                 <div>
+                    <label for="correoUsuario">Correo electronico</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="correo"
                         name="correoUsuario" value="<?= $correo ?>">
                 </div>
                 <div>
+                    <label for="telefonoUsuario">Telefono personal</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="telefono"
                         name="telefonoUsuario" value="<?= $telefono ?>">
                 </div>
                 <div>
+                    <label for="cargoUsuario">Cargo del empleado</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="cargo"
                         name="cargoUsuario" value="<?= $cargo ?>">
                 </div>
                 <div>
+                    <label for="claveUsuario">Contraseña</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="contrasena"
                         name="claveUsuario" value="<?= $clave ?>">
                 </div>
@@ -229,7 +255,8 @@ if (!empty($_POST)) {
 
             </div>
 
-            <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
+            <button type="submit" class="btn btn-primary" onclick="actualizar()" name="actualizar"
+                id="actualizar">Actualizar</button>
         </form>
 
 
@@ -240,6 +267,10 @@ if (!empty($_POST)) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+    <script src="../../vista/assets/plugins/sweet alert/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
 </footer>
 
