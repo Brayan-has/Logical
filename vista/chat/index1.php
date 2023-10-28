@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,46 @@
     <link rel="stylesheet" href="../vista/css/lateral.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
 
+
+    <div class="container">
+
+        <script type="text/javascript">
+            function ajax() {
+                var req = new XMLHttpRequest();
+
+                req.onreadystatechange = function () {
+                    if (req.readyState == 4 && req.status == 200) {
+                        document.getElementById('chat').innerHTML = req.responseText;
+                    }
+                }
+
+                req.open('GET', 'chat.php', true);
+                req.send();
+            }
+            // linea que refresca la paguina cada segundo
+            setInterval(function () { ajax(); }, 1000);
+        </script>
 </head>
+<?php
+include "../../modelo/conexion_bd.php";
 
-<body>
+function formatearfecha($fecha)
+{
+
+    return date('g:i a', strtotime($fecha));
+}
+
+
+?>
+
+<body onload="ajax();">
+
+
+
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <div class="container-fluid">
@@ -50,41 +86,20 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>
                         <?php
-                        // session_start();
-                        
-                        
+                        session_start();
 
-
-                        include("../controlador/validar.controlador.php");
-
-
-                        $id = $_SESSION['id'];
-
-                        $sql = mysqli_query($conexion," SELECT- s.id_salario,s.horas_cantidad,s.horas_valor,s.salario from salario s
-                        INNER JOIN empleado e
-                        ON e.id_empleado = s.id_salario
-                        WHERE id_salario = $id;");
-                        $result = mysqli_num_rows($sql);
-
-                        if($result > 0){
-                            while($row = mysqli_fetch_array($sql)){
-                                $sala = $result['salario'];
-                            
-                            
-                            }
-   
-                        }
-
-                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
-                            echo "<li class='nav-item p-3 py-md-1'>" . "<a href='../vista/inicio'
-                                class='nav-link'>VOLVER</a></li>";
-                        } else {
-                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios'
-                                class='nav-link'>VOLVER</a></li>";
+                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador" or $_SESSION["cargo"] == "Supervisora" or $_SESSION["cargo"] == "Administradora") {
+                            echo "
+                        <li class='nav-item p-3 py-md-1'><a href='../../vista/inicio' class='nav-link'>VOLVER</a></li>
+                        ";
+                        }else{
+                            echo "
+                        <li class='nav-item p-3 py-md-1'><a href='../../vista/usuarios/usuarios' class='nav-link'>VOLVER</a></li>
+                        ";
                         }
                         ?>
+
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
                         <a href="" class="bi bi-hi"><i class="bi bi-github"></i></a>
@@ -99,56 +114,43 @@
     </nav>
     <!-- FINAL DE NAVBAR -->
 
-    <div class="container mt-4">
-
-        <!--data table  -->
-        <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
-            <thead>
-                <tr>
-
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">salario</th>
-                    <th scope="col">horas extras</th>
-                    <th scope="col">valor hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-
-                    <td>
-                        <?= $_SESSION['nombre'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['apellido'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['cargo'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['salario'];
-                        echo "$" ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['horas_cantidad'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['horas_valor'] ?>
-                    </td>
-
-                </tr>
 
 
-            </tbody>
 
-        </table>
-        <!-- end data table -->
+
+
+
+
+    <div id="contenedor">
+
+        <div id="caja-chat">
+            <div id="chat"></div>
+        </div>
+        <form method="POST" action="index1.php">
+            <input type="text" name="nombre" placeholder="ingresa tu nombre">
+            <textarea name="mensaje" placeholder="ingresa tu nombre"></textarea>
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+
+        <?php
+
+        if (isset($_POST['enviar'])) {
+            $nombre = $_POST['nombre'];
+            $mensaje = $_POST['mensaje'];
+            
+            $consulta = "INSERT INTO chat (nombre, mensaje) VALUES ('$nombre', '$mensaje')";
+            $ejecutar = $conexion->query($consulta);
+
+            if ($ejecutar) {
+                echo "<embed loop='false' src='iphone.mp3' hidden='true' autoplay='true'> ";
+            }
+        }
+
+
+        ?>
 
     </div>
-
-
-
+    </div>
 
 </body>
 <footer>

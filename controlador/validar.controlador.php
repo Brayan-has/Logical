@@ -53,7 +53,7 @@ if (!empty($_POST["ingresar"])) {
             $_SESSION['area'] = $datos->area;
             $_SESSION['horas_cantidad'] = $datos->horas_cantidad;
             $_SESSION['horas_valor'] = $datos->horas_valor;
-
+            $idSalario = $_SESSION['id'];
 
 
 

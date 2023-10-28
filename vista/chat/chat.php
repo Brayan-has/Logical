@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="utf-8">
+<html lang="en">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logical</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,11 +10,36 @@
     <link rel="stylesheet" href="../vista/css/lateral.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
 
+
+    <div class="container">
+
+        <script type="text/javascript">
+            function ajax() {
+                var req = new XMLHttpRequest();
+
+                req.onreadystatechange = function () {
+                    if (req.readyState == 4 && req.status == 200) {
+                        document.getElementById('chat').innerHTML = req.responseText;
+                    }
+                }
+
+                req.open('GET', 'chat.php', true);
+                req.send();
+            }
+            // linea que refresca la paguina cada segundo
+            setInterval(function () { ajax(); }, 1000);
+        </script>
 </head>
 
+
+
+
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <div class="container-fluid">
             <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
@@ -50,41 +73,20 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>
                         <?php
-                        // session_start();
-                        
-                        
+                        session_start();
 
-
-                        include("../controlador/validar.controlador.php");
-
-
-                        $id = $_SESSION['id'];
-
-                        $sql = mysqli_query($conexion," SELECT- s.id_salario,s.horas_cantidad,s.horas_valor,s.salario from salario s
-                        INNER JOIN empleado e
-                        ON e.id_empleado = s.id_salario
-                        WHERE id_salario = $id;");
-                        $result = mysqli_num_rows($sql);
-
-                        if($result > 0){
-                            while($row = mysqli_fetch_array($sql)){
-                                $sala = $result['salario'];
-                            
-                            
-                            }
-   
-                        }
-
-                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
-                            echo "<li class='nav-item p-3 py-md-1'>" . "<a href='../vista/inicio'
-                                class='nav-link'>VOLVER</a></li>";
-                        } else {
-                            echo "<li class='nav-item p-3 py-md-1'><a href='../vista/usuarios/usuarios'
-                                class='nav-link'>VOLVER</a></li>";
+                        if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador" or $_SESSION["cargo"] == "Supervisora" or $_SESSION["cargo"] == "Administradora") {
+                            echo "
+                        <li class='nav-item p-3 py-md-1'><a href='../../vista/inicio' class='nav-link'>VOLVER</a></li>
+                        ";
+                        }else{
+                            echo "
+                        <li class='nav-item p-3 py-md-1'><a href='../../vista/usuarios/usuarios' class='nav-link'>VOLVER</a></li>
+                        ";
                         }
                         ?>
+
                     </ul>
                     <div class="d-lg-none align-self-center py-3 text-info fs-2">
                         <a href="" class="bi bi-hi"><i class="bi bi-github"></i></a>
@@ -99,57 +101,38 @@
     </nav>
     <!-- FINAL DE NAVBAR -->
 
-    <div class="container mt-4">
-
-        <!--data table  -->
-        <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
-            <thead>
-                <tr>
-
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">salario</th>
-                    <th scope="col">horas extras</th>
-                    <th scope="col">valor hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-
-                    <td>
-                        <?= $_SESSION['nombre'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['apellido'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['cargo'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['salario'];
-                        echo "$" ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['horas_cantidad'] ?>
-                    </td>
-                    <td>
-                        <?= $_SESSION['horas_valor'] ?>
-                    </td>
-
-                </tr>
 
 
-            </tbody>
+ <div >   
+<?php
+include "../../modelo/conexion_bd.php";
 
-        </table>
-        <!-- end data table -->
+$consulta = "SELECT * FROM chat ORDER BY id DESC ";
+$ejecutar = $conexion->query($consulta);
+while ($filas = $ejecutar->fetch_array()) :
+
+?>
+    <div id="datos-chat">
+
+        
+          
+        <span style="color: #1c62c4"><?php echo $filas['nombre']; ?>: </span>
+        <span style="color: #10100E"><?php echo $filas['mensaje']; ?></span> </span>
+        <span style="float: right;"><?php echo formatearfecha($filas['fecha']); ?></span>
+        <button></button>
 
     </div>
+<?php endwhile; ?>
 
+<?php
+function formatearfecha($fecha)
+{
 
+    return date('g:i a', strtotime($fecha));
+}
 
-
+?>
+</div>
 </body>
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

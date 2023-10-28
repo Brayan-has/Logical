@@ -30,7 +30,17 @@ CREATE TABLE cargo(
 --     CONSTRAINT fk_horario FOREIGN KEY(id_horario) REFERENCES empleado(id_empleado)
 --     ON DELETE CASCADE
 --     );
-    
+
+   CREATE TABLE chat(
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    mensaje VARCHAR(255),
+    fecha TIMESTAMP ON CURRENT_TIMESTAMP
+
+
+   ); 
+
+-- 
 CREATE TABLE asistencia(
 	id_asistencia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_empleado INT NOT NULL,

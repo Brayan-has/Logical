@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php include("../controlador/validar.controlador.php");?>
+    <?php include("../controlador/validar.controlador.php"); ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -57,8 +57,20 @@
                     <ul class="navbar-nav fs-5 justify-content-evenly">
                         <li class="nav-item p-3 py-md-1"><a href="../vista/lista" class="nav-link">TAREA SEMANA</a></li>
                         <li class="nav-item p-3 py-md-1"><a href="../vista/salario" class="nav-link">SALARIO</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar" class="nav-link">ACTUALIZAR DATOS</a></li>
-                        <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">EMPLEADOS</a></li>
+                        <li class="nav-item p-3 py-md-1"><a href="../vista/registro/actualizar"
+                                class="nav-link">EMPLEADOS</a></li>
+                        <?php
+
+                        if ($_SESSION['cargo'] == "Administrador" or $_SESSION['cargo'] == "Administradora" or $_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Supervisora") {
+                            echo "
+                        <li class='nav-item p-3 py-md-1'><a href='../vista/chat/index1' class='nav-link'>NOVEDADES</a></li>
+                        ";
+                        }else{
+                            echo "
+                            <li class='nav-item p-3 py-md-1'><a href='../vista/chat/chat' class='nav-link'>NOVEDADES</a></li>
+                            ";
+                        }
+                        ?>
                         <li class="nav-item p-3 py-md-1"><a href="../controlador/salir.controlador" class="nav-link"
                                 onclick="return salir()">SALIR</a></li>
                     </ul>
@@ -120,46 +132,46 @@
 
 
 
-        <!-- Sección para formulario de las tareas -->
+    <!-- Sección para formulario de las tareas -->
 
-        <?php include_once "../controlador/administrador/tareas.controlador.php" ?>
+    <?php include_once "../controlador/administrador/tareas.controlador.php" ?>
 
-        <div class="container-fluid" id="agregar">
-            <h1>Ingresa los datos para agregar a un ususario a 'TAREA SEMANA' </h1>
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Id de usuario</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Ejemplo: 10" name="id_empleado">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Empresa</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Exito"
-                        name="empresa">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Hora de entrada</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 9:00 am"
-                        name="entrada">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Hora de salida</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 5:20 pm"
-                        name="salida">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Jornada</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Diurno"
-                        name="jornada">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Area</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1"
-                        placeholder="Ejemplo: Almacenamiento" name="area">
-                </div>
-                <input type="submit" class="btn btn-primary" name="tarea">Registrar tarea</input>
-            </form>
-        </div>
+    <div class="container-fluid" id="agregar">
+        <h1>Ingresa los datos para agregar a un ususario a 'TAREA SEMANA' </h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Id de usuario</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Ejemplo: 10" name="id_empleado">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Empresa</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Exito"
+                    name="empresa">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Hora de entrada</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 9:00 am"
+                    name="entrada">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Hora de salida</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: 5:20 pm"
+                    name="salida">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Jornada</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Diurno"
+                    name="jornada">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Area</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ejemplo: Almacenamiento"
+                    name="area">
+            </div>
+            <input type="submit" class="btn btn-primary" name="tarea">Registrar tarea</input>
+        </form>
+    </div>
     </div>
 </body>
 <footer>

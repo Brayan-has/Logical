@@ -71,6 +71,7 @@
 
     <div class="padre">
 
+        <?php session_start(); ?>
         <div class="container-fluid">
             <h1>Buscar usuarios</h1>
             <form action="" method="POST">

@@ -311,7 +311,7 @@ include("../../modelo/conexion_bd.php");
                 </div>
                 <div>
                     <label for="areaUsuario">Area</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Area laboral" name="usuarioArea" value="<?=$areaL?>">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Area laboral" name="usuarioArea" value="<?=$laboral?>">
                 </div>
               
 
