@@ -80,12 +80,12 @@ include("../../modelo/conexion_bd.php");
     $id_user = $_GET["id"];
 
     // creo la consulta para obtner los datos del usuario
-    $sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo,a.hora_entrada FROM empleado e
-INNER JOIN cargo c 
-on e.cargo = c.cargo
-INNER JOIN asistencia a
-on a.id_asistencia = e.id_empleado
-WHERE id_asistencia = $id_user");
+    $sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo,a.hora_entrada,a.hora_salida,a.jornada,a.area FROM empleado e
+    INNER JOIN cargo c 
+    on e.cargo = c.cargo
+    INNER JOIN asistencia a
+    on a.id_asistencia = e.id_empleado
+    WHERE id_asistencia = $id_user");
 
     // enumero los datos de la tabla en la base de datos
 // y valido para que sus resultados solo sean de 1 en adelante
@@ -106,6 +106,9 @@ WHERE id_asistencia = $id_user");
             $cargo = $data["cargo"];
             $clave = $data["contrasena"];
             $hora = $data["hora_entrada"];
+            $horaSali = $data["hora_salida"];
+            $jornadaUsuario = $data["jornada"];
+            $laboral = $data["area"];
         }
 
     } else {
@@ -120,9 +123,9 @@ WHERE id_asistencia = $id_user");
 
     if (!empty($_POST)) {
 
-        $alert = '';
+       
 
-        if (empty($_POST['entrada']) or empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) { ?>
+        if (empty($_POST['usuarioArea']) or empty($_POST['jornada']) or empty($_POST['salida']) or empty($_POST['entrada']) or empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) { ?>
 
 
             <script>
@@ -132,7 +135,7 @@ WHERE id_asistencia = $id_user");
                     text: 'Los campos no pueden estar vacios :(',
                     footer: ''
                 })
-            </script>';
+            </script>
         <?php } else {
 
 
@@ -146,14 +149,27 @@ WHERE id_asistencia = $id_user");
             $cargo = $_POST['cargoUsuario'];
             $clave = md5($_POST['claveUsuario']);
             $entrada = $_POST['entrada'];
-
+            $hSalida = $_POST['salida'];
+            $jUsuario = $_POST['jornada'];
+            $areaL = $_POST['usuarioArea'];
+            
             $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado != $id");
 
 
             $result = mysqli_fetch_array($query_select);
 
-            if ($result > 0) {
-                $alert = '<p class="msg_error">El correo o el usuairo ya existe</p>';
+            if ($result == 0) {
+                ?>
+
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: '',
+                        text: 'El usuario ya existe',
+                        footer: ''
+                    })
+                </script>
+                <?php
             } else {
 
                 if (empty($_POST['clave'])) {
@@ -161,22 +177,25 @@ WHERE id_asistencia = $id_user");
                     $sql_update = mysqli_query($conexion, "UPDATE empleado
                 SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' WHERE id_empleado = $id");
 
+                // editar asistencia / tarea
+
                 $sql_update = mysqli_query($conexion,"UPDATE asistencia
-                SET hora_entrada = '$entrada' WHERE id_asistencia = $id
+                SET hora_entrada = '$entrada', hora_salida = '$hSalida', jornada = '$jUsuario', area = '$areaL' WHERE id_asistencia = $id
                 ");
+
                 } else {
 
                     $sql_update = mysqli_query($conexion, "UPDATE empleado
                 SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' contrasena = '$clave' WHERE id_empleado = $id 
                 ");
 
-                    // 
+                    // editar asistencia / tarea
                     $sql_update = mysqli_query($conexion,"UPDATE asistencia
-                    SET hora_entrada = '$entrada' WHERE id_asistencia = $id
+                    SET hora_entrada = '$entrada', hora_salida = '$hSalida', jornada = '$jUsuario', area = '$areaL' WHERE id_asistencia = $id
                     ");
                 }
 
-                // $query_insert = mysqli_query($conexion,"INSERT INTO empleado(nombre,apellido,cedula,fecha_nacimiento,correo,telefono,cargo) VALUES ('$nombre','$apellido',$cedula,$fechaNacimiento,'$correo',$telefono,'$cargo'");
+              
                 if ($sql_update) {
                     ?>
 
@@ -189,7 +208,7 @@ WHERE id_asistencia = $id_user");
                     </script>
                     <?php
                 } else {
-                    $alert = '<p class="msg_error">Error al actualizar el usuario</p>';
+                    echo $alert = '<p class="msg_error">Error al actualizar el usuario</p>';
 
                 }
             }
@@ -208,7 +227,7 @@ WHERE id_asistencia = $id_user");
     <div class="container mt-4">
 
 
-        <h4>Editar</h4>
+        <h2>Editar empleado</h2>
 
         <?php
 
@@ -265,25 +284,40 @@ WHERE id_asistencia = $id_user");
                         name="claveUsuario" value="<?= $clave ?>">
                 </div>
                 <div>
-                    <div>
+                    <br>
+                    <br>
 
-                    </div>
-                    <h3 class="">
+                    
+                    <h2 class="">
                         Editar tarea
-                    </h3>
+                    </h2>
                 </div>
 
                 <div>
                     <label for="entrada">hora entrada</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="contrasena"
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="hora entrada"
                         name="entrada" value="<?=$hora?>">
                 </div>
+                <div>
+                    <label for="entrada">hora salida</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="hora salida"
+                        name="salida" value="<?=$horaSali?>">
+                </div>
 
-
+                <div>
+                    <label for="jornada">Jornada laboral</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="jornada laboral"
+                        name="jornada" value="<?=$jornadaUsuario?>">
+                </div>
+                <div>
+                    <label for="areaUsuario">Area</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Area laboral" name="usuarioArea" value="<?=$areaL?>">
+                </div>
+              
 
             </div>
 
-            <button type="submit" class="btn btn-primary" onclick="actualizar()" name="actualizar"
+            <button type="submit" class="btn btn-primary" name="actualizar"
                 id="actualizar">Actualizar</button>
         </form>
 
