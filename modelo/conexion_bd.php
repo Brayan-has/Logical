@@ -25,8 +25,5 @@ try {
 <?php }
 
 // crearemos una funcion para contar la fecha del chat
+?>
 
-function formatearfecha($fecha){
-    return date('g:i a', strtotime($fecha));
-
-}
