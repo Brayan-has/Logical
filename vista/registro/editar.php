@@ -80,10 +80,12 @@ include("../../modelo/conexion_bd.php");
     $id_user = $_GET["id"];
 
     // creo la consulta para obtner los datos del usuario
-    $sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo FROM empleado e
+    $sql = mysqli_query($conexion, "SELECT e.id_empleado,e.contrasena,e.correo,e.nombre,e.apellido,e.cedula,e.fecha_nacimiento,e.telefono,c.cargo,e.cargo,a.hora_entrada FROM empleado e
 INNER JOIN cargo c 
 on e.cargo = c.cargo
-WHERE id_empleado = $id_user");
+INNER JOIN asistencia a
+on a.id_asistencia = e.id_empleado
+WHERE id_asistencia = $id_user");
 
     // enumero los datos de la tabla en la base de datos
 // y valido para que sus resultados solo sean de 1 en adelante
@@ -103,6 +105,7 @@ WHERE id_empleado = $id_user");
             $telefono = $data["telefono"];
             $cargo = $data["cargo"];
             $clave = $data["contrasena"];
+            $hora = $data["hora_entrada"];
         }
 
     } else {
@@ -119,7 +122,7 @@ WHERE id_empleado = $id_user");
 
         $alert = '';
 
-        if (empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) { ?>
+        if (empty($_POST['entrada']) or empty($_POST['idUsuario']) or empty($_POST['nombreUsuario']) or empty($_POST['apellidoUsuario']) or empty($_POST['cedulaUsuario']) or empty($_POST['fechaNacimiento']) or empty($_POST['correoUsuario']) or empty($_POST['telefonoUsuario']) or empty($_POST['cargoUsuario'])) { ?>
 
 
             <script>
@@ -132,7 +135,7 @@ WHERE id_empleado = $id_user");
             </script>';
         <?php } else {
 
-           
+
 
             $nombre = $_POST['nombreUsuario'];
             $appellido_usuario = $_POST['apellidoUsuario'];
@@ -142,6 +145,7 @@ WHERE id_empleado = $id_user");
             $telefono = $_POST['telefonoUsuario'];
             $cargo = $_POST['cargoUsuario'];
             $clave = md5($_POST['claveUsuario']);
+            $entrada = $_POST['entrada'];
 
             $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado != $id");
 
@@ -156,11 +160,20 @@ WHERE id_empleado = $id_user");
 
                     $sql_update = mysqli_query($conexion, "UPDATE empleado
                 SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' WHERE id_empleado = $id");
+
+                $sql_update = mysqli_query($conexion,"UPDATE asistencia
+                SET hora_entrada = '$entrada' WHERE id_asistencia = $id
+                ");
                 } else {
 
                     $sql_update = mysqli_query($conexion, "UPDATE empleado
-                SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' contrasena = '$clave' WHERE id_empleado = $id");
+                SET nombre = '$nombre',apellido = ' $appellido_usuario', cedula = $cedula, fecha_nacimiento = '$nacimiento', correo = '$correo', telefono = $telefono, cargo = '$cargo' contrasena = '$clave' WHERE id_empleado = $id 
+                ");
 
+                    // 
+                    $sql_update = mysqli_query($conexion,"UPDATE asistencia
+                    SET hora_entrada = '$entrada' WHERE id_asistencia = $id
+                    ");
                 }
 
                 // $query_insert = mysqli_query($conexion,"INSERT INTO empleado(nombre,apellido,cedula,fecha_nacimiento,correo,telefono,cargo) VALUES ('$nombre','$apellido',$cedula,$fechaNacimiento,'$correo',$telefono,'$cargo'");
@@ -183,7 +196,7 @@ WHERE id_empleado = $id_user");
         }
     } else {
 
-        
+
     }
     ?>
 
@@ -251,6 +264,21 @@ WHERE id_empleado = $id_user");
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="contrasena"
                         name="claveUsuario" value="<?= $clave ?>">
                 </div>
+                <div>
+                    <div>
+
+                    </div>
+                    <h3 class="">
+                        Editar tarea
+                    </h3>
+                </div>
+
+                <div>
+                    <label for="entrada">hora entrada</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="contrasena"
+                        name="entrada" value="<?=$hora?>">
+                </div>
+
 
 
             </div>
