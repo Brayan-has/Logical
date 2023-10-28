@@ -130,7 +130,8 @@
             <tbody>
                 <?php
 
-
+                
+            
 
                 if ($_SESSION['cargo'] == "Supervisor" or $_SESSION['cargo'] == "Administrador") {
                     while ($datos = $sql->fetch_object()) { ?>
@@ -159,7 +160,7 @@
                         <td>
                             <?= $datos->area ?>
                         </td>
-                        <td><a href="../vista/registro/actualizar?id=<? $datos->id_empleado ?>"><i
+                        <td><a href="../vista/registro/editar?id=<?=$datos->id_empleado ?>"><i
                                     class="fa-sharp fa-solid fa-money-check-pen"></i>Editar</a></td>
                         <td>
                             <a href="lista.php?id=<?= $datos->id_asistencia ?>" onclick="return advertencia()"
@@ -188,48 +189,42 @@
 
                 <?php
 
-                // if (isset($_POST["busqueda"])) {
-                //     $busqueda = $_POST["buscar"];
-                //     $sql = $conexion->query("SELECT * FROM empleado,asistencia where correo LIKE '%$busqueda%'");
+
+
+                while ($datos = $sql->fetch_object()) { ?>
 
 
 
-                
-                // }
-                    while ($datos = $sql->fetch_object()) { ?>
+                    <tr>
+                        <td>
+                            <?= $datos->id_empleado ?>
+                        </td>
+                        <td>
+                            <?= $datos->nombre ?>
+                        </td>
+                        <td>
+                            <?= $datos->cedula ?>
+                        </td>
+                        <td>
+                            <?= $datos->cargo ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_entrada ?>
+                        </td>
+                        <td>
+                            <?= $datos->hora_salida ?>
+                        </td>
+                        <td>
+                            <?= $datos->jornada ?>
+                        </td>
+                        <td>
+                            <?= $datos->area ?>
+                        </td>
+                    </tr>
+
+                <?php }
 
 
-
-                        <tr>
-                            <td>
-                                <?= $datos->id_empleado ?>
-                            </td>
-                            <td>
-                                <?= $datos->nombre ?>
-                            </td>
-                            <td>
-                                <?= $datos->cedula ?>
-                            </td>
-                            <td>
-                                <?= $datos->cargo ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_entrada ?>
-                            </td>
-                            <td>
-                                <?= $datos->hora_salida ?>
-                            </td>
-                            <td>
-                                <?= $datos->jornada ?>
-                            </td>
-                            <td>
-                                <?= $datos->area ?>
-                            </td>
-                        </tr>
-
-                    <?php }
-
-                
 
 
 

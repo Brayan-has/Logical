@@ -36,7 +36,7 @@ if (!empty($_POST["tarea"])) {
         $sql_insert = $conexion->query("INSERT INTO asistencia (empresa,hora_entrada,hora_salida,id_empleado,id_asistencia,jornada,area) VALUES ('$empresa','$hora_entrada','$hora_salida',$id_empleado,$id_empleado,'$jornada','$area');");
 
         // 
-        $sql_cargo = $conexion->query("INSERT INTO cargo (id_cargo,cargo) VALUES ($id_empleado,'$cargos'");
+        $sql_cargo = $conexion->query("INSERT INTO cargo (id_cargo,cargo) VALUES ($id_empleado,'$cargos')");
 
 
         //en caso de devolver un valor verdadero 

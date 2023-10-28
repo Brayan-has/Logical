@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logical</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,9 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../vista/css/lateral.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <div class="container-fluid">
             <h1 class="navbar-brand text-info fw-semibold fs-4">LOGICAL</h1>
@@ -61,60 +60,45 @@
 
     </nav>
 
-    <!-- FINAL DE NAVBAR -->
 
 
 
-    </div>
+    
+        <!-- agregar salario de usuario nuevo -->
+        <div class="container mt-4">
 
+            <h4>Actualizar salario de empleado</h4>
 
-
-    <div class="padre">
-
-        <div class="container-fluid">
-            <h1>Buscar usuarios</h1>
             <form action="" method="POST">
+
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre del empleado</label>
-                    <input type="mail" name="buscar" class="form-control" id="exampleInputEmail1"
-                        placeholder="Ejemplo: Andres123@gmail.com">
+
+                    <div>
+                        <!-- id del empleado / id_salario -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="id del usuario ejemplo: 4" name="id">
+                    </div>
+                    <div>
+                        <!-- horas_cantidad -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Cantidad hora extra ejemplo: 3" name="cantidad">
+                    </div>
+                    <div>
+                        <!-- horas_valor -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Valor de hora ejemplo: 3600.000" name="valor">
+                    </div>
+                    <div>
+                        <!-- salario del empleado -->
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Salario ejemplo: 1160.000" name="salario">
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="salario_boton">Registrar salario</button>
             </form>
-        </div>
-
-        <div class="container mt-4" id="ca">
-
-            <table id="tabla" class="table table-striped display responsive nowrap" style="width:100%">
-                <thead>
-                    <th scope="row" scope="col">id</th>
-                    <th scope="col">nombre</th>
-                    <th scope="col">apellido</th>
-                    <th scope="col">cedula</th>
-                    <th scope="col">correo</th>
-                    <th scope="col">cargo</th>
-                </thead>
-
-                <tbody id="content">
-
-                    <?php
-
-                    include_once "../../controlador/administrador/admin.controlador.php"
-                    ?>
-
-                </tbody>
-
-            </table>
-
 
         </div>
-
-        
-
-
-
-
 </body>
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -122,5 +106,4 @@
         </script>
 
 </footer>
-
 </html>
