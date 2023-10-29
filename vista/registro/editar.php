@@ -153,12 +153,12 @@ include("../../modelo/conexion_bd.php");
             $jUsuario = $_POST['jornada'];
             $areaL = $_POST['usuarioArea'];
             
-            $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado != $id");
+            $query_select = mysqli_query($conexion, "SELECT * FROM empleado WHERE nombre ='$nombre' AND id_empleado = $id");
 
 
             $result = mysqli_fetch_array($query_select);
 
-            if ($result == 0) {
+            if ($result <= 0) {
                 ?>
 
                 <script>
